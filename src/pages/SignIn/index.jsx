@@ -4,7 +4,7 @@ export function SignIn() {
 
   return (
       <Container>
-        <button>Hello World</button>
+        <h1>Hello World</h1>
       </Container>
   );
 }
