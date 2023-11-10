@@ -1,10 +1,13 @@
+import { PiReceiptLight } from "react-icons/pi";
+
+import { Button } from "../../components/Button";
 import { Container } from "./styles"
 
 export function SignIn() {
 
   return (
       <Container>
-        <h1>Hello World</h1>
+        <Button title="Teste" />
       </Container>
   );
 }

@@ -28,6 +28,7 @@ export default createGlobalStyle`
 
     button {
         border: none;
+
         background: none;
     }
 
