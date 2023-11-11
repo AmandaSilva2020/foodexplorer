@@ -13,7 +13,7 @@ export const Container = styled.button`
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     transition: color 0.3s ease;
 
-    &:hover {
+    &:hover, &:active {
         color: ${({ theme }) => theme.COLORS.LIGHT_400};
     }
 

@@ -8,8 +8,8 @@ export const Container = styled.div`
 
     color: ${({ theme }) => theme.COLORS.LIGHT_500};
 
-    > label {
-
+    &, input {
+        font: ${({ theme }) => theme.FONT.ROBOTO_SMALL_REGULAR};
     }
 
     > .input-wrapper {

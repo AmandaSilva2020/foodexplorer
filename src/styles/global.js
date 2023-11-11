@@ -13,13 +13,16 @@ export default createGlobalStyle`
         font-size: 1.6rem;
     }
 
+    body, a, button{
+        font:  ${({ theme }) => theme.FONT.POPPINS_100_MEDIUM};
+    }
+
     body{
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
 
         background-color: ${({ theme }) => theme.COLORS.DARK_400};
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
-        
     }
 
     a {

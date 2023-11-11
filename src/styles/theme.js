@@ -30,5 +30,33 @@ export default {
 
         CAKE_200: "#82F3FF",
         CAKE_100: "#065E7C",
+    },
+
+    FONT: {
+        POPPINS_100_MEDIUM: "500 1.4rem/2.4rem 'Poppins', sans-serif",
+        POPPINS_200_MEDIUM: "500 2rem/160% 'Poppins', sans-serif",
+        POPPINS_400_MEDIUM: "500 3.2rem/140% 'Poppins', sans-serif",
+        POPPINS_500_MEDIUM: "500 4rem/140% 'Poppins', sans-serif",
+
+        POPPINS_300_BOLD: "700 2.4rem/140% 'Poppins', sans-serif",
+        
+        POPPINS_300_REGULAR: "400 2.4rem/140% 'Poppins', sans-serif",
+
+        ROBOTO_SMALLEST_REGULAR: "400 1.2rem/160% 'Roboto', sans-serif",
+
+        ROBOTO_SMALLER_REGULAR: "400 1.4rem/160% 'Roboto', sans-serif",
+        ROBOTO_SMALLER_BOLD: "700 1.4rem/160% 'Roboto', sans-serif",
+
+        ROBOTO_SMALL_SPACED: "400 1.6rem/160% 'Roboto', sans-serif",
+        ROBOTO_SMALL_REGULAR: "400 1.6rem/100% 'Roboto', sans-serif",
+        
+        ROBOTO_BIG_BOLD: "700 2rem/160% 'Roboto', sans-serif",
+        
+        ROBOTO_BIGGER_BOLD: "700 2.4rem 'Roboto', sans-serif",
+
+        ROBOTO_BIGGEST_BOLD: "700 3.2rem/160% 'Roboto', sans-serif",
+        
+        ROBOTO_GIANT_BOLD: "700 4.2rem 'Roboto', sans-serif",
+
     }
 }
