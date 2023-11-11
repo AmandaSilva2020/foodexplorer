@@ -3,6 +3,7 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Search } from "../../components/Search";
 import { ButtonText } from "../../components/ButtonText";
+import { Card } from "../../components/Card";
 
 import { PiX } from "react-icons/pi";
 import { useState } from "react";
@@ -17,7 +18,9 @@ export function Home(){
                 quantity="3" 
                 onOpenMenu={() => setMenuIsOpen(true)}
             />
-            <main></main>
+            <main>
+                <Card />
+            </main>
             <Footer />
             <div id="menu-overlay">
                 <ButtonText 

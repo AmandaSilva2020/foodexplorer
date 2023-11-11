@@ -12,6 +12,7 @@ export const Container = styled.div`
 
     > main{
         grid-area: main;
+        margin: auto;
     }
 
     > #menu-overlay{
