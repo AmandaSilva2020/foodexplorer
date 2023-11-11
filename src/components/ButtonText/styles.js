@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
-    width: 100%;
     padding-block: 1.2rem;
 
     display: flex;
@@ -20,7 +19,7 @@ export const Container = styled.button`
     > svg {
         margin-right: 0.8rem;
 
-        width: 3.2rem;
-        height: 3.2rem;
+        width: 1.8rem;
+        height: 1.8rem;
     }
 `;

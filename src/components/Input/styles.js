@@ -16,11 +16,12 @@ export const Container = styled.div`
         width: 100%;
         padding: 1.2rem;
         border-radius: 0.5rem;
+        height: 4.8rem;
 
         background-color: ${({ theme }) => theme.COLORS.DARK_900};
 
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: auto 1fr;
 
         > svg {
             width: 2.4rem;

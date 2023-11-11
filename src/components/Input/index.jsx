@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 
-export function Input({ icon: Icon, label: Label = false, labelName, id: IconId, title, ...rest}){
+export function Input({ icon: Icon, label: Label = false, labelName, id: IconId, ...rest}){
     return(
         <Container>
             {Label && <label htmlFor={IconId}>{labelName}</label>}

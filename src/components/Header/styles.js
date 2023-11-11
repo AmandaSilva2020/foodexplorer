@@ -21,16 +21,6 @@ export const Container = styled.header`
         display: flex;
         align-items: center;
         justify-content: space-around;
-
-        &[data-is-admin="false"]{
-            .logo-role > span {
-                display: none;
-            }    
-            
-            #shop-list{
-                display: flex;
-            }
-        }
         
         #menu-hamb{
             display: flex;
@@ -89,6 +79,16 @@ export const Container = styled.header`
                 font: ${({ theme }) => theme.FONT.POPPINS_100_MEDIUM};
                 color: ${({ theme }) => theme.COLORS.LIGHT_100};
             }
+        }
+    }
+
+    &[data-is-admin="false"]{
+        .logo-role > span {
+            display: none;
+        }    
+        
+        #shop-list{
+            display: flex;
         }
     }
 
