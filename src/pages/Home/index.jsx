@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container, Cover } from "./styles";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Search } from "../../components/Search";
@@ -18,9 +18,18 @@ export function Home(){
                 quantity="3" 
                 onOpenMenu={() => setMenuIsOpen(true)}
             />
+
             <main>
+                <Cover>
+                    <img src="../../../src/assets/food.png" alt="" />
+                    <div>
+                        <h1>Sabores inigualáveis</h1>
+                        <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
+                    </div>
+                </Cover>
                 <Card />
             </main>
+
             <Footer />
             <div id="menu-overlay">
                 <ButtonText 

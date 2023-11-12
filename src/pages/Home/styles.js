@@ -12,7 +12,6 @@ export const Container = styled.div`
 
     > main{
         grid-area: main;
-        margin: auto;
     }
 
     > #menu-overlay{
@@ -73,4 +72,34 @@ export const Container = styled.div`
         }
     }
 
+`;
+
+export const Cover = styled.div`
+    display: flex;
+    align-items: end;
+    margin-top: 1.5rem;
+    position: relative;
+
+    > div {
+        margin-bottom: 2.2rem;
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 140%;
+        }
+    }
+
+    &::before{
+        content: "";
+        position: absolute;
+        left: 3.6rem;
+        z-index: -1;
+        
+        height: 12rem;
+        width: 85%;
+        background: ${({ theme }) => theme.COLORS.GRADIENT_200};
+    }
 `;
