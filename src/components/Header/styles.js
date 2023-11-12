@@ -2,7 +2,12 @@ import styled from "styled-components";
 
 export const Container = styled.header`
     grid-area: header;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    
     height: 11.4rem;
+    width: 100vw;
 
     display: flex;
     align-items: end;

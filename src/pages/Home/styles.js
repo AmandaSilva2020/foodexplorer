@@ -2,14 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
     display: grid;
     grid-template-areas:
     "header"
     "main"
-    "footer"
     ;
     grid-template-rows: auto 1fr auto;
-
+    
+    overflow: auto;
     > main{
         grid-area: main;
     }
@@ -23,47 +26,55 @@ export const Container = styled.div`
         transition: transform 0.3s ease-in-out;
 
         width: 100%;
-        height: calc(100vh - 7.7rem);
-        padding: 5.6rem 2.8rem;
-
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        gap: 3.6rem;
+        height: 100vh;
 
         background-color: ${({ theme }) => theme.COLORS.DARK_400};
 
-        > button{
-            font-family: 'Roboto', sans-serif;
-            font-size: 18px;
-            font-weight: 400;
-        }
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-        nav {
-            width: 100%;
-        }
-
-        ul {
-            list-style: none;
-            
-            li {
-                border-bottom: 1px solid ${({ theme }) => theme.COLORS.DARK_1000};
-                padding-block: 1rem;
+        > div{
+            padding: 5.6rem 2.8rem;
+    
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 3.6rem;
+    
+            > button{
+                font-family: 'Roboto', sans-serif;
+                font-size: 18px;
+                font-weight: 400;
+            }
+    
+            nav {
+                width: 100%;
+            }
+    
+            ul {
+                list-style: none;
                 
-                button{
-                    color: ${({ theme }) => theme.COLORS.LIGHT_300};
-
-                    font-size: 2.4rem;
-                    font-weight: 300;
+                li {
+                    border-bottom: 1px solid ${({ theme }) => theme.COLORS.DARK_1000};
+                    padding-block: 1rem;
+                    
+                    button{
+                        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+    
+                        font-size: 2.4rem;
+                        font-weight: 300;
+                    }
                 }
             }
         }
     }
 
     &[data-menu-is-open=false]{
-        #menu-overlay{
+        #menu-overlay {
             transform: translateX(-100%);
         }
+
     }
 
     &[data-is-admin=false]{
@@ -76,6 +87,7 @@ export const Container = styled.div`
 
 export const Cover = styled.div`
     display: flex;
+    width: 100vw;
     align-items: end;
     margin-top: 1.5rem;
     position: relative;
@@ -99,7 +111,9 @@ export const Cover = styled.div`
         z-index: -1;
         
         height: 12rem;
-        width: 85%;
+        width: 87%;
+
+        border-radius: 0.3rem;
         background: ${({ theme }) => theme.COLORS.GRADIENT_200};
     }
 `;

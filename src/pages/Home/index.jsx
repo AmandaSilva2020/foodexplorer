@@ -3,7 +3,7 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Search } from "../../components/Search";
 import { ButtonText } from "../../components/ButtonText";
-import { Card } from "../../components/Card";
+import { Slider } from "../../components/Slider";
 
 import { PiX } from "react-icons/pi";
 import { useState } from "react";
@@ -27,27 +27,32 @@ export function Home(){
                         <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
                     </div>
                 </Cover>
-                <Card />
+                <Slider />
+                <Slider />
+                <Slider />
             </main>
 
             <Footer />
             <div id="menu-overlay">
-                <ButtonText 
-                    icon={PiX}
-                    title="Menu"
-                    onClick={() => setMenuIsOpen(false)}
-                />
-                <Search />
-                <nav>
-                    <ul>
-                        <li id="btn-new-dish">
-                            <button>Novo prato</button>
-                        </li>
-                        <li>
-                            <button>Sair</button>
-                        </li>
-                    </ul>
-                </nav>
+                <div>
+                    <ButtonText 
+                        icon={PiX}
+                        title="Menu"
+                        onClick={() => setMenuIsOpen(false)}
+                    />
+                    <Search />
+                    <nav>
+                        <ul>
+                            <li id="btn-new-dish">
+                                <button>Novo prato</button>
+                            </li>
+                            <li>
+                                <button>Sair</button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <Footer />
             </div>
         </Container>
     )
