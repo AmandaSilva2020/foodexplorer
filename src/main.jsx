@@ -7,6 +7,7 @@ import GlobalStyles from './styles/global';
 
 import { SignIn } from './pages/SignIn';
 import { SignUp } from './pages/SignUp';
+
 import { Home } from './pages/Home';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
