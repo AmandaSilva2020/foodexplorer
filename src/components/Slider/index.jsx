@@ -10,8 +10,8 @@ export function Slider() {
       loop: true,
       mode: "free",
       slides: {
-        perView: 6,
-        spacing: 12,
+        perView: 2,
+        spacing: 0,
       },
     })
   
@@ -24,6 +24,7 @@ export function Slider() {
                 <div className="keen-slider__slide number-slide3"><Card /></div>
                 <div className="keen-slider__slide number-slide4"><Card /></div>
                 <div className="keen-slider__slide number-slide5"><Card /></div>
+                <div className="keen-slider__slide number-slide6"><Card /></div>
                 <div className="keen-slider__slide number-slide6"><Card /></div>
                 <div className="keen-slider__slide number-slide6"><Card /></div>
             </div>
