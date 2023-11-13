@@ -4,15 +4,12 @@ import { Footer } from "../../components/Footer";
 
 import { Slider } from "../../components/Slider";
 
-import { useState } from "react";
-
 export function Home(){
     
     return(
         <Container>
             <Header 
                 quantity="3" 
-                onOpenMenu={() => setMenuIsOpen(true)}
             />
 
             <main>
@@ -26,9 +23,11 @@ export function Home(){
                 <Slider />
                 <Slider />
                 <Slider />
+            
             </main>
-
+            
             <Footer />
+
         </Container>
     )
 }

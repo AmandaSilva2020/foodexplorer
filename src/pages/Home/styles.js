@@ -9,6 +9,7 @@ export const Container = styled.div`
     grid-template-areas:
     "header"
     "main"
+    "footer"
     ;
     grid-template-rows: auto 1fr auto;
     

@@ -35,7 +35,7 @@ export function Card({ ...rest }){
             </Product>
             <ButtonText title="Suco de maracujá >" />
             <p>€ 13,97</p>
-            <AddAndRemoveItem />
+            <AddAndRemoveItem btnExtists/>
         </Container>
     )
 }

@@ -3,7 +3,7 @@ import { Button } from "../Button"
 
 import { PiPlus, PiMinus } from "react-icons/pi";
 
-export function AddAndRemoveItem({ title, ...rest }){
+export function AddAndRemoveItem({btnExtists, ...rest }){
     return(
         <Container>
             <AddAndRemove>
@@ -11,7 +11,8 @@ export function AddAndRemoveItem({ title, ...rest }){
                 <span>01</span>
                 <button><PiPlus /></button>
             </AddAndRemove>
-            <Button title="Incluir" />
+
+            {btnExtists ? <Button title="Incluir" /> : ""}
         </Container>
     )
 }
