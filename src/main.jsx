@@ -10,12 +10,13 @@ import { SignUp } from './pages/SignUp';
 
 import { Home } from './pages/Home';
 import { Plate } from './pages/Plate';
+import { NewPlate } from './pages/NewPlate';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Plate />
+      <NewPlate />
     </ThemeProvider>
   </React.StrictMode>,
 )

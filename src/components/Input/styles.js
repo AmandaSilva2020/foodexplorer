@@ -12,7 +12,11 @@ export const Container = styled.div`
         font: ${({ theme }) => theme.FONT.ROBOTO_SMALL_REGULAR};
     }
 
-    > .input-wrapper {
+    > label .input-wrapper{
+        margin-top: 1.6rem;
+    }
+
+    > .input-wrapper, > label .input-wrapper{
         width: 100%;
         padding: 1.2rem;
         border-radius: 0.5rem;
@@ -20,8 +24,8 @@ export const Container = styled.div`
 
         background-color: ${({ theme }) => theme.COLORS.DARK_900};
 
-        display: grid;
-        grid-template-columns: auto 1fr;
+        display: flex;
+        align-items: center;
 
         > svg {
             width: 2.4rem;
@@ -31,6 +35,7 @@ export const Container = styled.div`
         }
 
         > input {
+            flex: 1;
             background: none;
             border: none;
             color: ${({ theme }) => theme.COLORS.LIGHT_500};;

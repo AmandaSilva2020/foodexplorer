@@ -6,7 +6,7 @@ import { Search } from "../Search";
 import { Footer } from "../Footer";
 
 export function Header({ quantity, ...rest }){
-    const [isAdmin, setIsAdmin] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(true);
     const [menuIsOpen, setMenuIsOpen] = useState(false);
     
     return(
