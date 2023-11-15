@@ -64,7 +64,10 @@ export const Form = styled.form`
 
         }
 
-        
+        label > div:first-child{
+            margin-top: 1.6rem;
+            color: ${({ theme }) => theme.COLORS.LIGHT_500};
+        }
     } 
 
 `;

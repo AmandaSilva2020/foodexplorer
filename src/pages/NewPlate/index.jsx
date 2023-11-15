@@ -7,6 +7,13 @@ import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 
 import { PiUploadSimple } from "react-icons/pi";
+import Select from 'react-select';
+
+const options = [
+    { value: 'refeicao', label: 'Refeição' },
+    { value: 'prato-principal', label: 'Prato principal' },
+    { value: 'sobremesa', label: 'Sobremesa' },
+  ]
 
 export function NewPlate(){
 
@@ -45,9 +52,32 @@ export function NewPlate(){
 
                         <label htmlFor="plate-category"> 
                             Categoria
-                            
-
+                            <Select 
+                                className="input-alike"
+                                options={options} 
+                                styles={{
+                                    control: (baseStyles, state) => ({
+                                      ...baseStyles,
+                                      border: state.isFocused ? 'none' : 'none',
+                                      backgroundColor: '#0D1D25',
+                                      height: '4.8rem',
+                                    }),
+                                    menu:(baseStyles, state) => ({
+                                        ...baseStyles,
+                                        backgroundColor: '#0D1D25',
+                                      }),
+                                    option: (baseStyles, state) => ({
+                                        ...baseStyles,
+                                        backgroundColor: state.isFocused ? '#192227' : '#0D1D25',
+                                      }),
+                                  }}
+                            />
                         </label>
+
+                        <div className="input-wrapper">
+                            
+                        </div>
+
 
                     </div>
                 </Form>
