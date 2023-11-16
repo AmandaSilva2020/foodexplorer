@@ -78,7 +78,7 @@ export function NewPlate(){
                     </div>
 
                     <div className="content-wrapper">
-                        <div className="ingredients">
+                        <div className="content">
                             <span>Ingredientes</span>
                             <div className="tag-wrapper">
                                 <Tag 
@@ -90,7 +90,29 @@ export function NewPlate(){
                                 />
                             </div>
                         </div>
+                        <div className="content">
+                            <span>Preço</span>
+                            <div className="price">
+                                <span>€</span>
+                                <input 
+                                    type="text" 
+                                    placeholder="00,00"
+                                />
+                            </div>
+                        </div>
                     </div>
+
+                    <div className="content">
+                        <span>Descrição</span>
+                        <textarea 
+                            placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                            
+                        ></textarea>
+                    </div>
+
+                    <Button 
+                        title="Salvar alteraçõe"
+                    />
                 </Form>
                 
             </main>

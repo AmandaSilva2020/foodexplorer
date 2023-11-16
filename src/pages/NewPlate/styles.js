@@ -22,7 +22,7 @@ export const Container = styled.div`
         flex-direction: column;
         align-items: start;
 
-        padding: 1.6rem 5.6rem 3.3rem;
+        padding: 1.6rem 3.2rem 3.3rem;
 
         button {
             font-size: 1.65rem;
@@ -70,21 +70,60 @@ export const Form = styled.form`
         }
     } 
     
-    .content-wrapper{
-        margin-top: 2.4rem;
 
-       .ingredients{
+    .content{
+        margin-block: 2.4rem;
         display: flex;
         flex-direction: column;
-       }
-       
+        gap: 2.4rem;
+
+        textarea {
+            border: none;
+            height: 17.2rem;
+            font: ${({ theme }) => theme.FONT.ROBOTO_SMALL_REGULAR};
+            color:${({ theme }) => theme.COLORS.LIGHT_100};
+        }
+
+        textarea:focus{
+            outline: none;
+        }
     }
     
     .tag-wrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1.6rem;
+        align-items: center;
+        border-radius: 0.8rem;
+
+        padding: 0.8rem 0.4rem;
+        background-color:${({ theme }) => theme.COLORS.DARK_800};
     }
 
+    .price{
+        border: none;
+
+        input {
+            background: none;
+            border: none;
+            margin-left: 0.8rem;
+            font: ${({ theme }) => theme.FONT.ROBOTO_SMALL_REGULAR};
+            color:${({ theme }) => theme.COLORS.LIGHT_100};
+
+            &:focus{
+                outline: none;
+            }
+        }
+
+    }
+
+    .price, textarea {
+        border-radius: 0.8rem;
+
+        padding: 1.6rem 1.4rem;
+        background-color:${({ theme }) => theme.COLORS.DARK_800};
+
+        resize: none;
+    }
 
 `;
