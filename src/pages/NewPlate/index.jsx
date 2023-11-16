@@ -2,8 +2,9 @@ import { Container, Form } from "./styles";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
-import { PiCaretLeft, PiReceipt } from "react-icons/pi";
+import { PiCaretLeft } from "react-icons/pi";
 import { Button } from "../../components/Button";
+import { Tag } from "../../components/Tag";
 import { Input } from "../../components/Input";
 
 import { PiUploadSimple } from "react-icons/pi";
@@ -74,11 +75,21 @@ export function NewPlate(){
                             />
                         </label>
 
-                        <div className="input-wrapper">
-                            
+                    </div>
+
+                    <div className="content-wrapper">
+                        <div className="ingredients">
+                            <span>Ingredientes</span>
+                            <div className="tag-wrapper">
+                                <Tag 
+                                    value="Pão Naan"
+                                />
+                                
+                                <Tag 
+                                    isnew
+                                />
+                            </div>
                         </div>
-
-
                     </div>
                 </Form>
                 

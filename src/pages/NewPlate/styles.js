@@ -69,5 +69,22 @@ export const Form = styled.form`
             color: ${({ theme }) => theme.COLORS.LIGHT_500};
         }
     } 
+    
+    .content-wrapper{
+        margin-top: 2.4rem;
+
+       .ingredients{
+        display: flex;
+        flex-direction: column;
+       }
+       
+    }
+    
+    .tag-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.6rem;
+    }
+
 
 `;
