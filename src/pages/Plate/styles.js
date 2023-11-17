@@ -22,7 +22,7 @@ export const Container = styled.div`
         flex-direction: column;
         align-items: start;
 
-        padding: 1.6rem 5.6rem 3.3rem;
+        padding: 1.6rem 3.2rem 3.3rem;
 
         button {
             font-size: 2.4rem;

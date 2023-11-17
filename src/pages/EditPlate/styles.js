@@ -128,7 +128,7 @@ export const Form = styled.form`
 
     .button-wrapper{
         display: flex;
-        gap: 3.2rem;
+        gap: 2.4rem;
 
         .delete-plate{
             width: 100%;

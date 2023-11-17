@@ -111,7 +111,7 @@ export function NewPlate(){
                     </div>
 
                     <Button 
-                        title="Salvar alteraçõe"
+                        title="Salvar alterações"
                     />
                 </Form>
                 

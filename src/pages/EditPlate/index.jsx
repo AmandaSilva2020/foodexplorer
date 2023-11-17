@@ -114,7 +114,7 @@ export function EditPlate(){
                         <button className="delete-plate">Excluir prato</button>
                         
                         <Button 
-                            title="Salvar alteraçõe"
+                            title="Salvar alterações"
                         />
                     </div>
                 </Form>
