@@ -26,4 +26,22 @@ export const Container = styled.div`
 
     }
 
+    @media (min-width: 1024px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        >img{
+            margin-top: 0;
+        }
+
+        > main {
+            background-color: ${({ theme }) => theme.COLORS.DARK_700};
+            padding: 6.4rem;
+            width: 47.6rem;
+
+            border-radius: 1.6rem;
+        }
+    }
+
 `;
