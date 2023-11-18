@@ -18,6 +18,13 @@ export const Container = styled.div`
         grid-area: main;
         width: 100vw;
     }
+
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}) {
+        > main{
+            padding-inline: 12.2rem;
+            
+        }
+    }
 `;
 
 export const Cover = styled.div`
@@ -50,5 +57,11 @@ export const Cover = styled.div`
 
         border-radius: 0.3rem;
         background: ${({ theme }) => theme.COLORS.GRADIENT_200};
+    }
+
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}){
+        &::before{
+            width: 80%;
+        }
     }
 `;

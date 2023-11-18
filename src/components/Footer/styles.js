@@ -17,4 +17,8 @@ export const Container = styled.footer`
         font-size: 1.2rem;
         font-weight: 200;
     }
+
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}){
+        padding: 2.8rem 12.2rem;
+    }
 `;
