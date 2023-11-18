@@ -87,6 +87,10 @@ export const Container = styled.header`
         }
     }
 
+    .menu-desktop{
+        display: none;
+    }
+
     &[data-is-admin="false"]{
         .logo-role > span {
             display: none;
@@ -163,5 +167,57 @@ export const Container = styled.header`
         }
     }
 
-    
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}) {
+        padding: 2.8rem 12.2rem;
+
+        > #menu-overlay{
+            display: none;
+        }
+
+        > nav {
+            #menu-hamb{
+                display: none;
+            }
+        }
+
+        .menu-desktop{
+            display: flex;
+            flex: 1;
+            gap: 3.2rem;
+            margin-left: 3.2rem;
+
+            #order {
+                width: 21.6rem;
+
+                svg{
+                    width: 2.6rem;
+                    height: 2.2rem;
+                }
+            }
+
+            > button{
+                svg{
+                    width: 3.2rem;
+                    height: 3.2rem;
+                }
+
+                &:hover{
+                    svg{
+                        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+                    }
+                }
+            }
+        }
+
+        .logo-role{
+            flex-direction: column;
+            align-items: end;
+        }
+
+        &[data-is-admin="false"]{
+            #shop-list{
+                display: none;
+            }
+        }
+    }
 `;
