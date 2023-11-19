@@ -56,7 +56,7 @@ export default {
         
         ROBOTO_BIGGER_BOLD: "700 2.4rem 'Roboto', sans-serif",
 
-        ROBOTO_BIGGEST_BOLD: "700 3.2rem/160% 'Roboto', sans-serif",
+        ROBOTO_BIGGEST_REGULAR: "400 3.2rem/160% 'Roboto', sans-serif",
         
         ROBOTO_GIANT_BOLD: "700 4.2rem 'Roboto', sans-serif",
 

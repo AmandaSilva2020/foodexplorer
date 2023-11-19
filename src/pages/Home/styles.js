@@ -21,7 +21,7 @@ export const Container = styled.div`
 
     @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}) {
         > main{
-            padding-inline: 12.2rem;
+            padding-inline: 12.3rem;
             
         }
     }
@@ -29,13 +29,38 @@ export const Container = styled.div`
 
 export const Cover = styled.div`
     display: flex;
-    width: 100vw;
-    align-items: end;
-    margin-top: 1.5rem;
-    position: relative;
+    justify-content: space-between;
 
-    > div {
+
+    margin-top: 4.4rem;
+    margin-left: 2rem;
+
+    height: 12rem;
+
+
+    border-radius: 0.3rem;
+    background: ${({ theme }) => theme.COLORS.GRADIENT_200};
+
+    > #cover-img {
+        position: relative;
+        width: 30%;
+        height: 100%;
+        
+        img {
+            bottom: -4px;
+            left: -35px;
+            position: absolute;
+            height: 149px;
+            width: 191px;
+        }
+    }
+
+    > .cover-text {
+        align-self: end;
+        width: 20.2rem;
         margin-bottom: 2.2rem;
+        margin-right: 2.1rem;
+
         h1 {
             font-size: 1.8rem;
         }
@@ -46,22 +71,34 @@ export const Cover = styled.div`
         }
     }
 
-    &::before{
-        content: "";
-        position: absolute;
-        left: 3.6rem;
-        z-index: -1;
-        
-        height: 12rem;
-        width: 87%;
-
-        border-radius: 0.3rem;
-        background: ${({ theme }) => theme.COLORS.GRADIENT_200};
-    }
-
     @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}){
-        &::before{
-            width: 80%;
+        height: 26rem;
+        margin-top: 16.4rem;
+        
+        >#cover-img{
+            img {
+                bottom: -14px;
+                left: -80px;
+                width: 600px;
+                height: auto;
+            }
         }
+
+        > .cover-text {
+            margin-right: 10.4rem;
+            margin-bottom: 9.2rem;
+            width: fit-content;
+
+
+            h1 {
+                font: ${({ theme }) => theme.FONT.POPPINS_500_MEDIUM};
+            }
+
+            p {
+                font: ${({ theme }) => theme.FONT.ROBOTO_SMALL_REGULAR};
+            }
+        }
+        
+
     }
 `;

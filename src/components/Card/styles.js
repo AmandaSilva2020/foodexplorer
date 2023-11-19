@@ -14,7 +14,11 @@ export const Container = styled.div`
         padding: 0;
     }
 
-    > p{
+    > #description{
+        display: none;
+    }
+
+    > #price{
         margin-top: 1.2rem;
 
         color: ${({ theme }) => theme.COLORS.CAKE_200};
@@ -24,6 +28,26 @@ export const Container = styled.div`
     &[data-is-admin=true]{
         div:last-child{
             display: none;
+        }
+    }
+
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}){
+        width: 30.4rem;
+
+        > #description{
+            display: block;
+            
+            font: ${({ theme }) => theme.FONT.ROBOTO_SMALLER_REGULAR};
+            text-align: center;
+            margin-block: 1.5rem;
+        }
+
+        > #price {
+            font: ${({ theme }) => theme.FONT.ROBOTO_BIGGEST_REGULAR};
+        }
+
+        > button {
+            font: ${({ theme }) => theme.FONT.POPPINS_300_BOLD};
         }
     }
 `;
@@ -45,5 +69,5 @@ export const Product = styled.div`
 
             color: ${({ theme }) => theme.COLORS.LIGHT_300};
         }
-    }
+    }  
 `;

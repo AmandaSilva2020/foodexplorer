@@ -14,6 +14,13 @@ export const Container = styled.div`
         height: 3.2rem;
     }
 
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}){
+        flex-direction: row;
+
+        > button{
+            width: 92px;
+        }
+    }
 `;
 
 export const AddAndRemove = styled.div`

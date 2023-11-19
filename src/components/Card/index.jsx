@@ -34,7 +34,8 @@ export function Card({ ...rest }){
                 }
             </Product>
             <ButtonText title="Suco de maracujá >" />
-            <p>€ 13,97</p>
+            <div id="description">Presunto de parma e rúcula em um pão com fermentação natural.</div>
+            <p id="price">€ 13,97</p>
             <AddAndRemoveItem btnExtists/>
         </Container>
     )

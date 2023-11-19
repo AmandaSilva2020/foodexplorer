@@ -14,8 +14,10 @@ export function Home(){
 
             <main>
                 <Cover>
-                    <img src="../../../src/assets/food.png" alt="" />
-                    <div>
+                    <div id="cover-img">
+                        <img src="../../../src/assets/food.png" alt="" />
+                    </div>
+                    <div className="cover-text">
                         <h1>Sabores inigualáveis</h1>
                         <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
                     </div>
