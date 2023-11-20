@@ -49,6 +49,14 @@ export const Container = styled.div`
         > button {
             font: ${({ theme }) => theme.FONT.POPPINS_300_BOLD};
         }
+
+        >div{
+            img{
+                width: 17.6rem;
+                height: 17.6rem;
+            }
+        }
+        
     }
 `;
 

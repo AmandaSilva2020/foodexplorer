@@ -17,6 +17,10 @@ export const Container = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}){
+        > p{
+            font: ${({ theme }) => theme.FONT.POPPINS_400_MEDIUM}
+        }
+
         .navigation-wrapper{
             .arrows-slider{
                 display: block;
