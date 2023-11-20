@@ -24,8 +24,8 @@ export function Slider() {
         "(min-width: 1024px)": {
           slides: { 
             origin: 1, 
-            perView: 3.5, 
-            spacing: 10, 
+            perView: 3.45, 
+            spacing: 0, 
           },
           range: {
             min: -5,

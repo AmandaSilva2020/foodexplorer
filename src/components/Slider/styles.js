@@ -44,8 +44,8 @@ export const Container = styled.div`
 
             &::after {
                 right: 0;
-                width: 180px; 
-                background: linear-gradient(90deg, rgba(0, 10, 15, 0) 0%, #000A0F 100%);
+                width: 140px; 
+                background: linear-gradient(90deg, rgba(0, 10, 15, 0.67) 0%, #000A0F 100%);
             }
 
             .arrow {
