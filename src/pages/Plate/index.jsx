@@ -40,12 +40,12 @@ export function Plate(){
                         {
                             isAdmin ? 
                             <div className="plate-btn-wrapper">
-                                <Button title="Editar prato"/>
+                                <Button title="Editar prato" id="edit-plate" />
                             </div>
                             :
                             <div className="plate-btn-wrapper">
                                 <AddAndRemoveItem />
-                                <Button icon={PiReceipt} title="pedir ∙ R$ 25,00"/>
+                                <Button icon={PiReceipt} title="Pedir ∙ R$ 25,00" id="add-to-order" />
                             </div>
                         }
                     </div>

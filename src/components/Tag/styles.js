@@ -34,10 +34,16 @@ export const Container = styled.div`
 
     .button-add{
         color: ${({ theme }) => theme.COLORS.LIGHT_500};
+        align-self: center;
     }
     
     .button-delete{
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
+        align-self: center;
+    }
+
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}){
+        padding-inline: 1.6rem;
     }
     
 `;

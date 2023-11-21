@@ -40,6 +40,14 @@ export const Container = styled.div`
         }
     }
 
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}) {
+        > main{
+            padding-inline: 12.3rem;
+            
+        }
+        
+    }
+
 `;
 
 export const Form = styled.form`
@@ -47,6 +55,7 @@ export const Form = styled.form`
     position: relative;
 
     color: ${({ theme }) => theme.COLORS.LIGHT_500};
+    font: ${({ theme }) => theme.FONT.ROBOTO_SMALL_REGULAR};
 
     > .input-wrapper{
         display: flex;
@@ -64,9 +73,15 @@ export const Form = styled.form`
 
         }
 
-        label > div:first-child{
-            margin-top: 1.6rem;
-            color: ${({ theme }) => theme.COLORS.LIGHT_500};
+        #select-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+
+            div{
+                color: ${({ theme }) => theme.COLORS.LIGHT_500};
+            }
         }
     } 
     
@@ -140,6 +155,42 @@ export const Form = styled.form`
             &:hover {
                 background-color:${({ theme }) => theme.COLORS.DARK_900};
             }
+        }
+    }
+
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}) {
+
+        .input-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .content-wrapper{
+            display: flex;
+            gap: 3.2rem;
+
+            .content{
+                flex: 2;
+                margin-bottom: 0;
+            }
+            .second-content{
+                flex: 1;
+            }
+
+            .tag-wrapper{
+                grid-template-columns: repeat(4, 1fr);
+            }   
+        }
+
+        .button-wrapper{
+            justify-content: flex-end;
+            
+            
+            button, .delete-plate{
+                width: fit-content;
+                padding-inline: 2.4rem;
+            }
+
         }
     }
 

@@ -22,7 +22,7 @@ export const Container = styled.div`
         flex-direction: column;
         align-items: start;
 
-        padding: 1.6rem 3.2rem 3.3rem;
+        padding: 1.6rem 5.6rem 3.3rem;
 
         button {
             font-size: 2.4rem;
@@ -39,6 +39,14 @@ export const Container = styled.div`
         .plate-btn-wrapper > button{
             font: ${({ theme }) => theme.FONT.POPPINS_100_MEDIUM};
         }
+    }
+
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}) {
+        > main{
+            padding-inline: 12.3rem;
+            
+        }
+        
     }
 `;
 
@@ -88,20 +96,84 @@ export const PlateInfo = styled.section`
 
         .plate-btn-wrapper{
             display: flex;
-            justify-content: space-between;
+            gap: 1.6rem;
 
             height: 3.78rem;
 
             margin-top: 4.8rem;
 
             button{
-                font-size: 0.9rem;
+                font-size: 1.2rem;
                 font-weight: 500;
+            }
 
+            #add-to-order{
                 svg {
-                    height: 1.48rem;
+                    width: 2rem;
+                    
                 }
             }
         }
+    }
+
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}) {
+        flex-direction: row;
+        gap: 4.8rem;
+
+        > img {
+            width: auto;
+            height: 38.9rem;
+        }
+
+        > div {
+            text-align: left;
+
+            h2{
+                font: ${({ theme }) => theme.FONT.POPPINS_500_MEDIUM};
+            }
+
+            p{
+                font: ${({ theme }) => theme.FONT.POPPINS_300_REGULAR};
+            }
+            
+            .tag-wrapper{
+                justify-content: flex-start;
+            }
+
+            .plate-btn-wrapper{
+                justify-content: flex-start;
+                width: fit-content;
+                height: 4.8rem;
+                gap: 3.3rem;
+
+                div:first-child {
+                    width: fit-content;
+                    div{
+                        justify-content: flex-start;
+                        gap: 14px;
+                    }
+                }
+
+                button{
+                    font: ${({ theme }) => theme.FONT.POPPINS_100_MEDIUM};
+
+                    svg {
+                        height: 1.8rem;
+                        width: 1.8rem;
+                    }
+                }
+
+                #add-to-order, #edit-plate{
+                    padding-inline: 2.4rem;
+                    svg{
+                        display: none;
+                    }
+                }
+
+
+            }
+            
+        }
+
     }
 `;

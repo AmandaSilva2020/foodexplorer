@@ -45,5 +45,10 @@ export const Container = styled.div`
             }
         }
     }
+
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}) {
+       flex: auto;
+        
+    }
     
 `;

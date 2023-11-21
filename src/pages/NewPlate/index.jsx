@@ -49,10 +49,12 @@ export function NewPlate(){
                             labelName="Nome"
                             placeholder="Ex.: Salada Ceasar"
                             type="text"
+                            id="plate-name"
                         />
 
-                        <label htmlFor="plate-category"> 
+                        <label htmlFor="plate-category" id="select-wrapper"> 
                             Categoria
+                            
                             <Select 
                                 className="input-alike"
                                 options={options} 
@@ -84,13 +86,19 @@ export function NewPlate(){
                                 <Tag 
                                     value="Pão Naan"
                                 />
+                                <Tag 
+                                    value="Pão Naan"
+                                />
+                                <Tag 
+                                    value="Pão Naan"
+                                />
                                 
                                 <Tag 
                                     isnew
                                 />
                             </div>
                         </div>
-                        <div className="content">
+                        <div className="content second-content">
                             <span>Preço</span>
                             <div className="price">
                                 <span>€</span>

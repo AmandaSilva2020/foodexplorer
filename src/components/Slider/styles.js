@@ -4,6 +4,10 @@ export const Container = styled.div`
     width: 100%;
     margin: 6.2rem;
     margin-left: 2.4rem;
+
+    >p{
+        margin-bottom: 2.4rem;
+    }
     
 
     .navigation-wrapper{
@@ -17,8 +21,10 @@ export const Container = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}){
+        margin-inline: 0;
+
         > p{
-            font: ${({ theme }) => theme.FONT.POPPINS_400_MEDIUM}
+            font: ${({ theme }) => theme.FONT.POPPINS_400_MEDIUM};
         }
 
         .navigation-wrapper{
@@ -45,7 +51,7 @@ export const Container = styled.div`
             &::after {
                 right: 0;
                 width: 140px; 
-                background: linear-gradient(90deg, rgba(0, 10, 15, 0.67) 0%, #000A0F 100%);
+                background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6264880952380952) 50%, rgba(0,0,0,1) 100%);
             }
 
             .arrow {

@@ -40,6 +40,13 @@ export const Container = styled.div`
         }
     }
 
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}) {
+        > main{
+            padding-inline: 12.3rem;
+            
+        }
+        
+    }
 `;
 
 export const Form = styled.form`
@@ -47,6 +54,7 @@ export const Form = styled.form`
     position: relative;
 
     color: ${({ theme }) => theme.COLORS.LIGHT_500};
+    font: ${({ theme }) => theme.FONT.ROBOTO_SMALL_REGULAR};
 
     > .input-wrapper{
         display: flex;
@@ -126,4 +134,53 @@ export const Form = styled.form`
         resize: none;
     }
 
+    .button-wrapper{
+        display: flex;
+        gap: 2.4rem;
+
+        .delete-plate{
+            width: 100%;
+            border-radius: 0.5rem;
+
+            background-color:${({ theme }) => theme.COLORS.DARK_800};
+            color:${({ theme }) => theme.COLORS.LIGHT_100};
+
+            &:hover {
+                background-color:${({ theme }) => theme.COLORS.DARK_900};
+            }
+        }
+    }
+
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}) {
+        display: flex;
+        flex-direction: column;
+
+        .input-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .content-wrapper{
+            display: flex;
+            gap: 3.2rem;
+
+            .content{
+                flex: 2;
+                margin-bottom: 0;
+            }
+            .second-content{
+                flex: 1;
+            }
+
+            .tag-wrapper{
+                grid-template-columns: repeat(4, 1fr);
+            }   
+        }
+
+        > button{
+            width: fit-content;
+            padding-inline: 2.4rem;
+            align-self: flex-end;
+        }
+    }
 `;

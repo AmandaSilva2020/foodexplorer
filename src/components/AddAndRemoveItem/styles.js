@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 100%;
+    width: auto;
     padding-block: 1.2rem;
 
     display: flex;
@@ -16,6 +16,7 @@ export const Container = styled.div`
 
     @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}){
         flex-direction: row;
+        width: auto;
 
         > button{
             width: 92px;
@@ -28,7 +29,7 @@ export const AddAndRemove = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    width: 10rem;
+    width: 11.2rem;
     
     > button {
         display: flex;
@@ -44,5 +45,6 @@ export const AddAndRemove = styled.div`
     > span {
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
         font: ${({ theme }) => theme.FONT.ROBOTO_BIG_BOLD};
+        font-size: 23px;
     }
 `;

@@ -23,9 +23,9 @@ export function Slider() {
       breakpoints:{
         "(min-width: 1024px)": {
           slides: { 
-            origin: 1, 
-            perView: 3.45, 
-            spacing: 0, 
+            origin: 0.5, 
+            perView: 3, 
+            spacing: 27, 
           },
           range: {
             min: -5,

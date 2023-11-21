@@ -51,7 +51,7 @@ export function EditPlate(){
                             type="text"
                         />
 
-                        <label htmlFor="plate-category"> 
+                        <label htmlFor="plate-category" id="select-wrapper"> 
                             Categoria
                             <Select 
                                 className="input-alike"
@@ -90,7 +90,7 @@ export function EditPlate(){
                                 />
                             </div>
                         </div>
-                        <div className="content">
+                        <div className="content second-content">
                             <span>Preço</span>
                             <div className="price">
                                 <span>€</span>
