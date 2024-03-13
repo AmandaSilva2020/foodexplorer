@@ -60,7 +60,7 @@ export function SignUp() {
           />
 
           <Button title="Criar conta" onClick={handleSignUp} />
-          <ButtonText title="Já tenho uma conta"/>
+          <ButtonText title="Já tenho uma conta"to="/" />
         </main>
       </Container>
   );

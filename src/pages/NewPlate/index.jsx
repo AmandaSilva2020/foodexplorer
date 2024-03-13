@@ -28,6 +28,7 @@ export function NewPlate(){
                 <ButtonText 
                     icon={PiCaretLeft}
                     title="Voltar"
+                    to="/"
                 />
 
                 <h2>Novo Prato</h2>
