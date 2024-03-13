@@ -1,3 +1,5 @@
+import { useAuth } from "../../hooks/auth";
+
 import { useState } from "react";
 import { Container } from "./styles";
 import { PiList, PiReceiptLight, PiX, PiSignOut } from "react-icons/pi";
@@ -7,6 +9,8 @@ import { Footer } from "../Footer";
 import { Button } from "../Button";
 
 export function Header({ quantity, ...rest }){
+    const { signOut } = useAuth();
+
     const [isAdmin, setIsAdmin] = useState(false);
     const [menuIsOpen, setMenuIsOpen] = useState(false);
 
@@ -44,7 +48,7 @@ export function Header({ quantity, ...rest }){
                             />
                         }
                     </div>
-                    <button>
+                    <button onClick={signOut}>
                         <PiSignOut />
                     </button>
                 </div>
