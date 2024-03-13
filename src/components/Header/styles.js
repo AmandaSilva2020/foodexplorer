@@ -126,7 +126,7 @@ export const Container = styled.header`
             align-items: start;
             gap: 3.6rem;
     
-            > button{
+            > button, a {
                 font-family: 'Roboto', sans-serif;
                 font-size: 18px;
                 font-weight: 400;
@@ -143,7 +143,7 @@ export const Container = styled.header`
                     border-bottom: 1px solid ${({ theme }) => theme.COLORS.DARK_1000};
                     padding-block: 1rem;
                     
-                    button{
+                    button, a{
                         color: ${({ theme }) => theme.COLORS.LIGHT_300};
     
                         font-size: 2.4rem;

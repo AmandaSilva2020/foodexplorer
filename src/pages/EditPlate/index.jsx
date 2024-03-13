@@ -28,6 +28,7 @@ export function EditPlate(){
                 <ButtonText 
                     icon={PiCaretLeft}
                     title="Voltar"
+                    to="/"
                 />
 
                 <h2>Editar Prato</h2>

@@ -1,20 +1,29 @@
 import { useAuth } from "../../hooks/auth";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container } from "./styles";
 import { PiList, PiReceiptLight, PiX, PiSignOut } from "react-icons/pi";
 import { ButtonText } from "../ButtonText";
 import { Search } from "../Search";
 import { Footer } from "../Footer";
 import { Button } from "../Button";
+import { Link } from 'react-router-dom';
 
 export function Header({ quantity, ...rest }){
-    const { signOut } = useAuth();
+    const { signOut, user } = useAuth();
 
     const [isAdmin, setIsAdmin] = useState(false);
     const [menuIsOpen, setMenuIsOpen] = useState(false);
 
     let pedidos = 2;
+
+    useEffect(() => {
+        if(user.role == "admin"){
+            setIsAdmin(true);
+        } else {
+            setIsAdmin(false);
+        }
+    }, []);
     
     return(
         <Container data-menu-is-open={menuIsOpen} data-is-admin={isAdmin}>
@@ -41,6 +50,7 @@ export function Header({ quantity, ...rest }){
                             isAdmin ?
                             <Button 
                                 title= "Novo prato"
+                                to= "/newplate"
                             /> :
                             <Button 
                                 icon={PiReceiptLight}
@@ -64,10 +74,10 @@ export function Header({ quantity, ...rest }){
                     <div className="menu-btn-wrapper">
                         <ul>
                             <li id="btn-new-dish">
-                                <button>Novo prato</button>
+                                <Link to="/newplate" >Novo prato</Link>
                             </li>
                             <li>
-                                <button>Sair</button>
+                                <button onClick={signOut}>Sair</button>
                             </li>
                         </ul>
                     </div>

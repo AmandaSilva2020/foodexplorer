@@ -66,7 +66,7 @@ export const Product = styled.div`
         height: 8.8rem;
     }
 
-    > button {
+    > a {
         svg{
             position: absolute;
             top: 1.6rem;
