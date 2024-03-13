@@ -6,10 +6,20 @@ import { PiCaretLeft, PiReceipt } from "react-icons/pi";
 import { AddAndRemoveItem } from "../../components/AddAndRemoveItem";
 import { Button } from "../../components/Button";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useAuth } from "../../hooks/auth";
 
 export function Plate(){
+    const { user } = useAuth();
     const [isAdmin, setIsAdmin] = useState(false);
+
+    useEffect(() => {
+        if(user.role == "admin"){
+            setIsAdmin(true);
+        } else {
+            setIsAdmin(false);
+        }
+    }, []);
 
     return(
         <Container data-is-admin={isAdmin}>
@@ -21,6 +31,7 @@ export function Plate(){
                 <ButtonText 
                     icon={PiCaretLeft}
                     title="Voltar"
+                    to="/"
                 />
 
 
@@ -40,7 +51,7 @@ export function Plate(){
                         {
                             isAdmin ? 
                             <div className="plate-btn-wrapper">
-                                <Button title="Editar prato" id="edit-plate" />
+                                <Button title="Editar prato" id="edit-plate" to="/editplate" />
                             </div>
                             :
                             <div className="plate-btn-wrapper">

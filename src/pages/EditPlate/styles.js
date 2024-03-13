@@ -187,7 +187,7 @@ export const Form = styled.form`
             
             
             button, .delete-plate{
-                width: fit-content;
+                width: 100%;
                 padding-inline: 2.4rem;
             }
 

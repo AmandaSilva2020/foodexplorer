@@ -30,6 +30,7 @@ export const AddAndRemove = styled.div`
     justify-content: space-between;
 
     width: 11.2rem;
+    gap: 0.7rem;
     
     > button {
         display: flex;
