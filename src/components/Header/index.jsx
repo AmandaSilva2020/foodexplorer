@@ -14,16 +14,13 @@ export function Header({ quantity, ...rest }){
 
     const [isAdmin, setIsAdmin] = useState(false);
     const [menuIsOpen, setMenuIsOpen] = useState(false);
+    const [search, setSearch] = useState([]);
 
     let pedidos = 2;
 
     useEffect(() => {
-        if(user.role == "admin"){
-            setIsAdmin(true);
-        } else {
-            setIsAdmin(false);
-        }
-    }, []);
+        setIsAdmin(user.role === "admin");
+    }, [user.role]);
     
     return(
         <Container data-menu-is-open={menuIsOpen} data-is-admin={isAdmin}>
@@ -44,7 +41,9 @@ export function Header({ quantity, ...rest }){
                 </button>
 
                 <div className="menu-desktop">
-                    <Search />
+                    <Search 
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
                     <div id="order">
                         {  
                             isAdmin ?
