@@ -1,12 +1,14 @@
+import { api } from '../../services/api';
+
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 
 import { Container } from './styles';
 
 import { Card } from "../Card";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export function Slider() {
+export function Slider({platesSearched = []}) {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [loaded, setLoaded] = useState(false);
     const [sliderRef, instanceRef] = useKeenSlider({
@@ -38,20 +40,38 @@ export function Slider() {
         spacing: 0,
       },
     })
+
+
+    const[plates, setPlates] = useState([]);
+
+    useEffect(() => {
+      async function fetchPlates(){
+        const response = await api.get(`/plates?name=${platesSearched}`);
+        setPlates(response.data.plates);
+      }
+
+      fetchPlates();
+    }, [platesSearched]);
+
+    
   
     return (
         <Container>
             <p>Refeições</p>
             <div className="navigation-wrapper">
               <div ref={sliderRef} className="keen-slider">
-                  <div className="keen-slider__slide number-slide1"><Card /></div>
-                  <div className="keen-slider__slide number-slide2"><Card /></div>
-                  <div className="keen-slider__slide number-slide3"><Card /></div>
-                  <div className="keen-slider__slide number-slide4"><Card /></div>
-                  <div className="keen-slider__slide number-slide5"><Card /></div>
-                  <div className="keen-slider__slide number-slide6"><Card /></div>
-                  <div className="keen-slider__slide number-slide6"><Card /></div>
-                  <div className="keen-slider__slide number-slide6"><Card /></div>
+                  {
+                    plates.map(plate => (
+                      <div className="keen-slider__slide number-slide1">
+                        <Card 
+                          key={String(plate.id)}
+                          title={plate.name}
+                          description={plate.description}
+                          price={plate.price}
+                          />
+                      </div>
+                    ))
+                  }
               </div>
               {loaded && instanceRef.current && (
                 <div className='arrows-slider'>

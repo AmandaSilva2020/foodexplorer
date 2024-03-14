@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 import { PiHeart, PiHeartFill, PiPencilSimple } from "react-icons/pi";
 
-export function Card({ ...rest }){
+export function Card({ title, description, price, ...rest }){
     const { user } = useAuth();
 
     const [isFavorite, setIsFavorite] = useState(false);
@@ -47,9 +47,9 @@ export function Card({ ...rest }){
                     </Link>
                 }
             </Product>
-            <ButtonText title="Suco de maracujá >" />
-            <div id="description">Presunto de parma e rúcula em um pão com fermentação natural.</div>
-            <p id="price">€ 13,97</p>
+            <ButtonText title={title + " >"} />
+            <div id="description">{description}</div>
+            <p id="price">{"€ " + price}</p>
             <AddAndRemoveItem btnExtists/>
         </Container>
     )

@@ -9,7 +9,7 @@ import { Footer } from "../Footer";
 import { Button } from "../Button";
 import { Link } from 'react-router-dom';
 
-export function Header({ quantity, ...rest }){
+export function Header({ setPlatesSearched, quantity, ...rest }){
     const { signOut, user } = useAuth();
 
     const [isAdmin, setIsAdmin] = useState(false);
@@ -21,6 +21,10 @@ export function Header({ quantity, ...rest }){
     useEffect(() => {
         setIsAdmin(user.role === "admin");
     }, [user.role]);
+
+    useEffect(() => {
+        setPlatesSearched(search)
+    }, [search, setPlatesSearched])
     
     return(
         <Container data-menu-is-open={menuIsOpen} data-is-admin={isAdmin}>
