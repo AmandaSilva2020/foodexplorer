@@ -43,11 +43,13 @@ export function Slider({platesSearched = []}) {
 
 
     const[plates, setPlates] = useState([]);
+    const[platesLoaded, setPlatesLoaded] = useState(false);
 
     useEffect(() => {
       async function fetchPlates(){
         const response = await api.get(`/plates?name=${platesSearched}`);
         setPlates(response.data.plates);
+        setPlatesLoaded(true);
       }
 
       fetchPlates();
@@ -59,20 +61,23 @@ export function Slider({platesSearched = []}) {
         <Container>
             <p>Refeições</p>
             <div className="navigation-wrapper">
-              <div ref={sliderRef} className="keen-slider">
-                  {
-                    plates.map(plate => (
-                      <div className="keen-slider__slide number-slide1">
-                        <Card 
-                          key={String(plate.id)}
-                          title={plate.name}
-                          description={plate.description}
-                          price={plate.price}
-                          />
-                      </div>
-                    ))
-                  }
-              </div>
+              {
+                platesLoaded &&
+                <div ref={sliderRef} className="keen-slider">
+                {
+                  plates.map(plate => (
+                    <div className="keen-slider__slide number-slide1" key={String(plate.id)}>
+                      <Card 
+                        title={plate.name}
+                        description={plate.description}
+                        price={plate.price}
+                        />
+                    </div>
+                  ))
+                }
+            </div>
+              }
+             
               {loaded && instanceRef.current && (
                 <div className='arrows-slider'>
                   <Arrow 
