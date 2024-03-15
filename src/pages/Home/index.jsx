@@ -29,8 +29,6 @@ export function Home(){
                 <Slider 
                     platesSearched = {platesSearched}
                 />
-                <Slider />
-                <Slider />
             
             </main>
             

@@ -44,62 +44,81 @@ export function Slider({platesSearched = []}) {
 
     const[plates, setPlates] = useState([]);
     const[platesLoaded, setPlatesLoaded] = useState(false);
+    
+    const[categories, setCategories] = useState({});
 
     useEffect(() => {
       async function fetchPlates(){
         const response = await api.get(`/plates?name=${platesSearched}`);
         setPlates(response.data.plates);
+
+        const groupedByCategory = plates.reduce((acc, plate) => {
+          // Agrupando pratos por categoria
+          if (!acc[plate.category]) {
+            acc[plate.category] = [];
+          }
+          acc[plate.category].push(plate);
+          return acc;
+        }, {});
+    
+        setCategories(groupedByCategory);
+
         setPlatesLoaded(true);
       }
       
       fetchPlates();
     }, [platesSearched]);
-
-    
   
     return (
         <Container>
-            <p>Refeições</p>
-            <div className="navigation-wrapper">
-              {
-                platesLoaded &&
-                <div ref={sliderRef} className="keen-slider">
-                {
-                  plates.map(plate => (
-                    <div className="keen-slider__slide number-slide1" key={String(plate.id)}>
-                      <Card 
-                        title={plate.name}
-                        description={plate.description}
-                        price={plate.price}
-                        />
-                    </div>
-                  ))
-                }
-            </div>
-              }
-             
-              {loaded && instanceRef.current && (
-                <div className='arrows-slider'>
-                  <Arrow 
-                    left
-                    onClick={(e) => 
-                      e.stopPropagation() || instanceRef.current?.prev()
-                    }
-                    disabled={currentSlide === 0}
-                  />
+          {
+            Object.entries(categories).map(([category, platesInCategory]) => (
+              <div key={category}>
+                <p>{category}</p>
+                <div className="navigation-wrapper">
+                  {
+                    platesLoaded &&
+                    <div ref={sliderRef} className="keen-slider">
+                      {
+                        platesInCategory.map(plate =>
+                          <div className="keen-slider__slide number-slide1" key={String(plate.id)}>
+                            <Card 
+                              title={plate.name}
+                              description={plate.description}
+                              price={plate.price}
+                              />
+                          </div>
+                        )
+                      }
+                    </div>  
+                  }
+                
+                  {loaded && instanceRef.current && (
+                    <div className='arrows-slider'>
+                      <Arrow 
+                        left
+                        onClick={(e) => 
+                          e.stopPropagation() || instanceRef.current?.prev()
+                        }
+                        disabled={currentSlide === 0}
+                      />
 
-                  <Arrow
-                    onClick={(e) =>
-                      e.stopPropagation() || instanceRef.current?.next()
-                    }
-                    disabled={
-                      currentSlide ===
-                      instanceRef.current.track.details.slides.length - 1
-                    }
-                  />
+                      <Arrow
+                        onClick={(e) =>
+                          e.stopPropagation() || instanceRef.current?.next()
+                        }
+                        disabled={
+                          currentSlide ===
+                          instanceRef.current.track.details.slides.length - 1
+                        }
+                      />
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
+              </div>
+            )
+          )}
+            
             
         </Container>
     )

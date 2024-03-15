@@ -5,7 +5,7 @@ export const Container = styled.div`
     margin: 6.2rem;
     margin-left: 2.4rem;
 
-    >p{
+    > p{
         margin-bottom: 2.4rem;
     }
     
