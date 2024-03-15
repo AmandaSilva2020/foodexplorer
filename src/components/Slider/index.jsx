@@ -51,7 +51,7 @@ export function Slider({platesSearched = []}) {
         setPlates(response.data.plates);
         setPlatesLoaded(true);
       }
-
+      
       fetchPlates();
     }, [platesSearched]);
 
