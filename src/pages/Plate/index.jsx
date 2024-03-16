@@ -12,6 +12,7 @@ import { useAuth } from "../../hooks/auth";
 export function Plate(){
     const { user } = useAuth();
     const [isAdmin, setIsAdmin] = useState(false);
+    const [platesSearched, setPlatesSearched] = useState([]);
 
     useEffect(() => {
         if(user.role == "admin"){
@@ -25,6 +26,7 @@ export function Plate(){
         <Container data-is-admin={isAdmin}>
             <Header 
                 quantity="3" 
+                setPlatesSearched={setPlatesSearched}
             />
 
             <main>

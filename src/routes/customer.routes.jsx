@@ -7,7 +7,7 @@ export function CustomerRoutes(){
     return(
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/plate" element={<Plate />} />
+            <Route path="/plate/:id" element={<Plate />} />
             
             {/* TODO Prepare Not Found page */}
             {/* <Route path="*" exact={true} element={<NotFound />} /> */} 

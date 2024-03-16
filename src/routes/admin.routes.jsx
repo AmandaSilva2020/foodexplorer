@@ -9,7 +9,7 @@ export function AdminRoutes(){
     return(
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/plate" element={<Plate />} />
+            <Route path="/plate/:id" element={<Plate />} />
             <Route path="/newplate" element={<NewPlate />} />
             <Route path="/editplate/:id" element={<EditPlate />} />
 

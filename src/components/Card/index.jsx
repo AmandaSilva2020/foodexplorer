@@ -47,7 +47,7 @@ export function Card({ plateId, title, description, price, ...rest }){
                     </Link>
                 }
             </Product>
-            <ButtonText title={title + " >"} />
+            <ButtonText title={title + " >"} to={"/plate/" + plateId}/>
             <div id="description">{description}</div>
             <p id="price">{"€ " + price}</p>
             <AddAndRemoveItem btnExtists/>
