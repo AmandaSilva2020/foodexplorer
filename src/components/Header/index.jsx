@@ -73,7 +73,9 @@ export function Header({ setPlatesSearched, quantity, ...rest }){
                         title="Menu"
                         onClick={() => setMenuIsOpen(false)}
                     />
-                    <Search />
+                    <Search 
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
                     <div className="menu-btn-wrapper">
                         <ul>
                             <li id="btn-new-dish">
