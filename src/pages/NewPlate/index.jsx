@@ -7,6 +7,8 @@ import { Button } from "../../components/Button";
 import { Tag } from "../../components/Tag";
 import { Input } from "../../components/Input";
 
+import { useState } from "react";
+
 import { PiUploadSimple } from "react-icons/pi";
 import Select from 'react-select';
 
@@ -17,11 +19,13 @@ const options = [
   ]
 
 export function NewPlate(){
+    const [platesSearched, setPlatesSearched] = useState([]);
 
     return(
         <Container>
             <Header 
                 quantity="3" 
+                setPlatesSearched={setPlatesSearched}
             />
 
             <main>
