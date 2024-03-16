@@ -105,6 +105,7 @@ export function Home(){
                                     title={plate.name}
                                     description={plate.description}
                                     price={plate.price}
+                                    plateId={plate.id}
                                     />
                                 </div>
                                 )

@@ -10,6 +10,8 @@ import { Input } from "../../components/Input";
 import { PiUploadSimple } from "react-icons/pi";
 import Select from 'react-select';
 
+import { useState } from "react";
+
 const options = [
     { value: 'refeicao', label: 'Refeição' },
     { value: 'prato-principal', label: 'Prato principal' },
@@ -17,11 +19,13 @@ const options = [
   ]
 
 export function EditPlate(){
+    const [platesSearched, setPlatesSearched] = useState([]);
 
     return(
         <Container>
             <Header 
                 quantity="3" 
+                setPlatesSearched={setPlatesSearched}
             />
 
             <main>

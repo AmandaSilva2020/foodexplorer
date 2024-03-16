@@ -11,7 +11,7 @@ export function AdminRoutes(){
             <Route path="/" element={<Home />} />
             <Route path="/plate" element={<Plate />} />
             <Route path="/newplate" element={<NewPlate />} />
-            <Route path="/editplate" element={<EditPlate />} />
+            <Route path="/editplate/:id" element={<EditPlate />} />
 
             {/* TODO Prepare Not Found page */}
             {/* <Route path="*" exact={true} element={<NotFound />} /> */} 
