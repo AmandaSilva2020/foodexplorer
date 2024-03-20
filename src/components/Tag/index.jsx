@@ -8,7 +8,6 @@ export function Tag({ title, value, onClick, isnew = false, ...rest }) {
                 type="text"
                 value={value}
                 readOnly={!isnew}
-                placeholder="Adicionar"
                 {...rest}
             />
 

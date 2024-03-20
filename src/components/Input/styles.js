@@ -38,7 +38,7 @@ export const Container = styled.div`
             flex: 1;
             background: none;
             border: none;
-            color: ${({ theme }) => theme.COLORS.LIGHT_500};;
+            color: ${({ theme }) => theme.COLORS.LIGHT_500};
 
             &:focus{
                 outline: none;
