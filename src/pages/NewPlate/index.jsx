@@ -9,17 +9,18 @@ import { Button } from "../../components/Button";
 import { Tag } from "../../components/Tag";
 import { Input } from "../../components/Input";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { PiUploadSimple } from "react-icons/pi";
 import Select from 'react-select';
+import Creatable from 'react-select/creatable';
 
-const options = [
-    { value: 'refeicao', label: 'Refeição' },
-    { value: 'prato-principal', label: 'Prato principal' },
-    { value: 'sobremesa', label: 'Sobremesa' },
-  ]
+// const options = [
+//     { value: 'refeicao', label: 'Refeição' },
+//     { value: 'prato-principal', label: 'Prato principal' },
+//     { value: 'sobremesa', label: 'Sobremesa' },
+//   ]
 
 export function NewPlate(){
     const [platesSearched, setPlatesSearched] = useState([]);
@@ -41,7 +42,6 @@ export function NewPlate(){
         setPlateImageName(file.name);
     }
 
-
     function handleAddIngredient(){
         setIngredients(prevState => [...prevState, newIngredient]);
         setNewIngredient("");
@@ -54,12 +54,12 @@ export function NewPlate(){
     async function handleNewPlate(){
         try {
             const formData = new FormData();
-            formData.append("plateimage", plateImage); // Assumindo que 'plateImage' é um File
+            formData.append("plateimage", plateImage); 
             formData.append("name", name);
             formData.append("category", category);
             formData.append("price", price);
             formData.append("description", description);
-            // Adiciona cada ingrediente individualmente
+            
             ingredients.forEach(ingredient => {
                 formData.append("ingredients[]", ingredient);
             });
@@ -82,6 +82,26 @@ export function NewPlate(){
               console.log(error);
         }
     }
+
+    const [categoriesOptions, setCategoriesOptions] = useState([]); 
+
+  useEffect(() => {
+    async function fetchCategories() {
+      const response = await api.get(`/plates?name=`);
+      const fetchedPlates = response.data.plates;
+
+      const uniqueCategories = Array.from(new Set(fetchedPlates.map((plate) => plate.category)));
+
+      const categoriesFormatted = uniqueCategories.map((category) => ({
+        value: category,
+        label: category,
+      }));
+
+      setCategoriesOptions(categoriesFormatted);
+    }
+
+    fetchCategories();
+  }, []);
 
     return(
         <Container>
@@ -124,9 +144,10 @@ export function NewPlate(){
                         <label htmlFor="plate-category" id="select-wrapper"> 
                             Categoria
                             
-                            <Select 
+                            <Creatable
+                                placeholder="Selecione ou crie uma categoria" 
                                 className="input-alike"
-                                options={options} 
+                                options={categoriesOptions} 
                                 onChange={e => setCategory(e.value)}
                                 styles={{
                                     control: (baseStyles, state) => ({
@@ -144,6 +165,10 @@ export function NewPlate(){
                                         backgroundColor: state.isFocused ? '#192227' : '#0D1D25',
                                       }),
                                     singleValue: (baseStyles) => ({
+                                        ...baseStyles,
+                                        color: "#fff",
+                                    }),
+                                    input: (baseStyles) => ({
                                         ...baseStyles,
                                         color: "#fff",
                                     })
