@@ -16,12 +16,6 @@ import { PiUploadSimple } from "react-icons/pi";
 import Select from 'react-select';
 import Creatable from 'react-select/creatable';
 
-// const options = [
-//     { value: 'refeicao', label: 'Refeição' },
-//     { value: 'prato-principal', label: 'Prato principal' },
-//     { value: 'sobremesa', label: 'Sobremesa' },
-//   ]
-
 export function NewPlate(){
     const [platesSearched, setPlatesSearched] = useState([]);
 
@@ -52,6 +46,14 @@ export function NewPlate(){
     }
 
     async function handleNewPlate(){
+        if(!name || !category || !price || !description){
+            return alert("Você não preencheu todos os campos.");
+        }
+        
+        if(newIngredient){
+            return alert("Você inseriu um ingrediente no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio.");
+        }
+        
         try {
             const formData = new FormData();
             formData.append("plateimage", plateImage); 

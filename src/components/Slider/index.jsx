@@ -1,3 +1,4 @@
+import { api } from "../../services/api";
 import { useState } from "react";
 
 import 'keen-slider/keen-slider.min.css';
@@ -46,6 +47,7 @@ export function Slider({ platesInCategory }){
             {platesInCategory.map(plate => (
               <div className="keen-slider__slide number-slide1" key={String(plate.id)}>
                 <Card
+                  imageUrl={api.defaults.baseURL + "/files/" + plate.image}
                   title={plate.name}
                   description={plate.description}
                   price={plate.price}

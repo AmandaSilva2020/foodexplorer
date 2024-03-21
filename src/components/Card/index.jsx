@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 import { PiHeart, PiHeartFill, PiPencilSimple } from "react-icons/pi";
 
-export function Card({ plateId, title, description, price, ...rest }){
+export function Card({ imageUrl, plateId, title, description, price, ...rest }){
     const { user } = useAuth();
 
     const [isFavorite, setIsFavorite] = useState(false);
@@ -35,7 +35,7 @@ export function Card({ plateId, title, description, price, ...rest }){
     return(
         <Container {...rest} data-is-admin={isAdmin}>
             <Product>
-                <img src="../../../src/assets/suco.png" alt="suco" />
+                <img src={imageUrl} alt={title} />
                 
                 { isAdmin ?
                     <Link to={"/editplate/" + plateId}>

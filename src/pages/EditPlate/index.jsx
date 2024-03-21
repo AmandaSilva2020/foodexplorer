@@ -1,3 +1,5 @@
+import { api } from "../../services/api";
+
 import { Container, Form } from "./styles";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
@@ -9,17 +11,99 @@ import { Input } from "../../components/Input";
 
 import { PiUploadSimple } from "react-icons/pi";
 import Select from 'react-select';
+import Creatable from 'react-select/creatable';
 
-import { useState } from "react";
-
-const options = [
-    { value: 'refeicao', label: 'Refeição' },
-    { value: 'prato-principal', label: 'Prato principal' },
-    { value: 'sobremesa', label: 'Sobremesa' },
-  ]
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function EditPlate(){
     const [platesSearched, setPlatesSearched] = useState([]);
+
+    const [plateImage, setPlateImage] = useState(null);
+    const [plateImageName, setPlateImageName] = useState("");
+    const [name, setName] = useState("");
+    const [category, setCategory] = useState("");
+    const [ingredients, setIngredients] = useState([]);
+    const [newIngredient, setNewIngredient] = useState("");
+    const [price, setPrice] = useState("");
+    const [description, setDescription] = useState("");
+
+    const navigate = useNavigate()
+
+    function handleInsertPlateImage(event){
+        const file = event.target.files[0];
+        setPlateImage(file);
+        setPlateImageName(file.name);
+    }
+
+    function handleAddIngredient(){
+        setIngredients(prevState => [...prevState, newIngredient]);
+        setNewIngredient("");
+    }
+
+    function handleRemoveIngredient(deleted){
+        setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
+    }
+
+    async function handleEditPlate(){
+        if(!name || !category || !price || !description){
+            return alert("Você não preencheu todos os campos.");
+        }
+        
+        if(newIngredient){
+            return alert("Você inseriu um ingrediente no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio.");
+        }
+        
+        try {
+            const formData = new FormData();
+            formData.append("plateimage", plateImage); 
+            formData.append("name", name);
+            formData.append("category", category);
+            formData.append("price", price);
+            formData.append("description", description);
+            
+            ingredients.forEach(ingredient => {
+                formData.append("ingredients[]", ingredient);
+            });
+
+            const response = await api.post("/plates", formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+    
+            alert("Prato criado com sucesso!");
+            navigate("/");
+            
+        } catch (error) {
+            if(error.response){
+                alert(error.response.data.message);
+              } else {
+                alert("Não foi possível cadastrar.");
+              }
+              console.log(error);
+        }
+    }
+
+    const [categoriesOptions, setCategoriesOptions] = useState([]); 
+
+    useEffect(() => {
+        async function fetchCategories() {
+        const response = await api.get(`/plates?name=`);
+        const fetchedPlates = response.data.plates;
+
+        const uniqueCategories = Array.from(new Set(fetchedPlates.map((plate) => plate.category)));
+
+        const categoriesFormatted = uniqueCategories.map((category) => ({
+            value: category,
+            label: category,
+        }));
+
+        setCategoriesOptions(categoriesFormatted);
+        }
+
+        fetchCategories();
+    }, []);
 
     return(
         <Container>
@@ -38,7 +122,7 @@ export function EditPlate(){
                 <h2>Editar Prato</h2>
 
                 <Form>
-                    <div className="input-wrapper">
+                <div className="input-wrapper">
                         <Input 
                             label 
                             labelName="Imagem do prato" 
@@ -46,7 +130,8 @@ export function EditPlate(){
                             type= "file"
                             id="plate-image"
                             hidden
-                            title="Selecione imagem para alterá-la"
+                            title={plateImageName ? plateImageName : "Selecione imagem"}
+                            onChange={handleInsertPlateImage}
                         />
 
                         <Input 
@@ -54,13 +139,18 @@ export function EditPlate(){
                             labelName="Nome"
                             placeholder="Ex.: Salada Ceasar"
                             type="text"
+                            id="plate-name"
+                            onChange={e => setName(e.target.value)}
                         />
 
                         <label htmlFor="plate-category" id="select-wrapper"> 
                             Categoria
-                            <Select 
+                            
+                            <Creatable
+                                placeholder="Selecione ou crie uma categoria" 
                                 className="input-alike"
-                                options={options} 
+                                options={categoriesOptions} 
+                                onChange={e => setCategory(e.value)}
                                 styles={{
                                     control: (baseStyles, state) => ({
                                       ...baseStyles,
@@ -76,6 +166,14 @@ export function EditPlate(){
                                         ...baseStyles,
                                         backgroundColor: state.isFocused ? '#192227' : '#0D1D25',
                                       }),
+                                    singleValue: (baseStyles) => ({
+                                        ...baseStyles,
+                                        color: "#fff",
+                                    }),
+                                    input: (baseStyles) => ({
+                                        ...baseStyles,
+                                        color: "#fff",
+                                    })
                                   }}
                             />
                         </label>
@@ -86,12 +184,21 @@ export function EditPlate(){
                         <div className="content">
                             <span>Ingredientes</span>
                             <div className="tag-wrapper">
-                                <Tag 
-                                    value="Pão Naan"
-                                />
-                                
-                                <Tag 
+                                {
+                                    ingredients.map((ingredient, index) => (
+                                        <Tag
+                                            key={String(index)}
+                                            value={ingredient}
+                                            onClick={() => handleRemoveIngredient(ingredient)}
+                                        />
+                                    ))
+                                }
+                                <Tag
                                     isnew
+                                    placeholder="Adicionar" 
+                                    value={newIngredient}
+                                    onChange={e => setNewIngredient(e.target.value)}
+                                    onClick={handleAddIngredient}
                                 />
                             </div>
                         </div>
@@ -102,6 +209,7 @@ export function EditPlate(){
                                 <input 
                                     type="text" 
                                     placeholder="00,00"
+                                    onChange={e => setPrice(parseFloat(e.target.value))}
                                 />
                             </div>
                         </div>
@@ -111,7 +219,7 @@ export function EditPlate(){
                         <span>Descrição</span>
                         <textarea 
                             placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
-                            
+                            onChange={e => setDescription(e.target.value)}
                         ></textarea>
                     </div>
 
@@ -120,6 +228,7 @@ export function EditPlate(){
                         
                         <Button 
                             title="Salvar alterações"
+                            onClick={handleEditPlate}
                         />
                     </div>
                 </Form>
