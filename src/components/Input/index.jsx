@@ -2,13 +2,13 @@ import { Container } from "./styles";
 
 export function Input({ title, icon: Icon, label: Label = false, labelName, id: InputId, ...rest}){
     return(
-        <Container {...rest}>
+        <Container>
             {
                 Label ? 
                     <label htmlFor={InputId}>{labelName}
                         <div className="input-wrapper">
                             {Icon && <Icon />}
-                            <input {...rest} id={InputId}/>
+                            <input id={InputId} {...rest} />
                             <span>{title}</span>
                         </div>
                     </label> 

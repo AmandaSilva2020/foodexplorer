@@ -52,16 +52,35 @@ export function NewPlate(){
     }
 
     async function handleNewPlate(){
-        await api.post("/plates", {
-            name,
-            category,
-            price,
-            description,
-            ingredients
-        });
+        try {
+            const formData = new FormData();
+            formData.append("plateimage", plateImage); // Assumindo que 'plateImage' é um File
+            formData.append("name", name);
+            formData.append("category", category);
+            formData.append("price", price);
+            formData.append("description", description);
+            // Adiciona cada ingrediente individualmente
+            ingredients.forEach(ingredient => {
+                formData.append("ingredients[]", ingredient);
+            });
 
-        alert("Prato criado com sucesso!");
-        navigate("/");
+            const response = await api.post("/plates", formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+    
+            alert("Prato criado com sucesso!");
+            navigate("/");
+            
+        } catch (error) {
+            if(error.response){
+                alert(error.response.data.message);
+              } else {
+                alert("Não foi possível cadastrar.");
+              }
+              console.log(error);
+        }
     }
 
     return(
@@ -89,7 +108,7 @@ export function NewPlate(){
                             type= "file"
                             id="plate-image"
                             hidden
-                            title={plateImageName ? plateImageName :"Selecione imagem"}
+                            title={plateImageName ? plateImageName : "Selecione imagem"}
                             onChange={handleInsertPlateImage}
                         />
 
@@ -124,9 +143,9 @@ export function NewPlate(){
                                         ...baseStyles,
                                         backgroundColor: state.isFocused ? '#192227' : '#0D1D25',
                                       }),
-                                    singleValue: (baseStyles, state) => ({
+                                    singleValue: (baseStyles) => ({
                                         ...baseStyles,
-                                        color: "#7C7C8A",
+                                        color: "#fff",
                                     })
                                   }}
                             />
@@ -163,7 +182,7 @@ export function NewPlate(){
                                 <input 
                                     type="text" 
                                     placeholder="00,00"
-                                    onChange={e => setPrice(e.target.value)}
+                                    onChange={e => setPrice(parseFloat(e.target.value))}
                                 />
                             </div>
                         </div>
@@ -178,7 +197,8 @@ export function NewPlate(){
                     </div>
 
                     <Button 
-                        title="Salvar alterações"
+                        title="Salvar prato"
+                        onClick={handleNewPlate}
                     />
                 </Form>
                 

@@ -38,6 +38,7 @@ export const Container = styled.div`
 
             margin-block: 2rem;
         }
+
     }
 
     @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}) {
