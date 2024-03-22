@@ -1,4 +1,5 @@
 import { useAuth } from "../../hooks/auth";
+import { Link, useNavigate} from 'react-router-dom';
 
 import { useState, useEffect } from "react";
 import { Container } from "./styles";
@@ -7,16 +8,21 @@ import { ButtonText } from "../ButtonText";
 import { Search } from "../Search";
 import { Footer } from "../Footer";
 import { Button } from "../Button";
-import { Link } from 'react-router-dom';
 
 export function Header({ setPlatesSearched, quantity, ...rest }){
     const { signOut, user } = useAuth();
+    const navigation = useNavigate();
 
     const [isAdmin, setIsAdmin] = useState(false);
     const [menuIsOpen, setMenuIsOpen] = useState(false);
     const [search, setSearch] = useState([]);
 
     let pedidos = 2;
+
+    function handleSignOut(){
+        navigation("/");
+        signOut();
+    }
 
     useEffect(() => {
         setIsAdmin(user.role === "admin");
@@ -61,7 +67,7 @@ export function Header({ setPlatesSearched, quantity, ...rest }){
                             />
                         }
                     </div>
-                    <button onClick={signOut}>
+                    <button onClick={handleSignOut}>
                         <PiSignOut />
                     </button>
                 </div>
@@ -82,7 +88,7 @@ export function Header({ setPlatesSearched, quantity, ...rest }){
                                 <Link to="/newplate" >Novo prato</Link>
                             </li>
                             <li>
-                                <button onClick={signOut}>Sair</button>
+                                <button onClick={handleSignOut}>Sair</button>
                             </li>
                         </ul>
                     </div>

@@ -87,7 +87,7 @@ export function EditPlate(){
             await api.put(`/plates/${params.id}`, plateUpdate);
     
             alert("Prato atualizado com sucesso!");
-            navigate("/");
+            navigate(-1);
             
         } catch (error) {
             if(error.response){
