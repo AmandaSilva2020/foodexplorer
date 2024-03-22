@@ -13,7 +13,7 @@ import { PiUploadSimple } from "react-icons/pi";
 import Creatable from 'react-select/creatable';
 
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export function EditPlate(){
     const [data, setData] = useState(null);
@@ -45,6 +45,15 @@ export function EditPlate(){
 
     function handleRemoveIngredient(deleted){
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
+    }
+
+    async function handlDedelePlate(){
+        const confirm = window.confirm("Deseja realmente remover este prato?");
+
+        if(confirm){
+            await api.delete(`/plates/${params.id}`);
+            navigate("/");
+        }
     }
 
     async function handleEditPlate(){
@@ -250,7 +259,7 @@ export function EditPlate(){
                     </div>
 
                     <div className="button-wrapper">
-                        <button className="delete-plate">Excluir prato</button>
+                        <Link className="delete-plate" onClick={handlDedelePlate}>Excluir prato</Link>
                         
                         <Button 
                             title="Salvar alterações"

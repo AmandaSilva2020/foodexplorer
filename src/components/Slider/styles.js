@@ -41,13 +41,13 @@ export const Container = styled.div`
 
             &::before {
                 left: 0;
-                width: 280px; 
+                width: 150px; 
                 background: linear-gradient(-90deg, rgba(0, 10, 15, 0) 0%, #000A0F 100%);
             }
 
             &::after {
                 right: 0;
-                width: 280px; 
+                width: 150px; 
                 background: linear-gradient(90deg, rgba(0,0,0,0) 0%, #000A0F 100%);
             }
 

@@ -21,6 +21,7 @@ export function Slider({ platesInCategory }){
 
       loop: true,
       rtl: true,
+      
       breakpoints:{
         "(min-width: 1024px)": {
           slides: { 

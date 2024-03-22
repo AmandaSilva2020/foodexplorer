@@ -148,6 +148,11 @@ export const Form = styled.form`
         .delete-plate{
             width: 100%;
             border-radius: 0.5rem;
+            padding-block: 1.2rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             background-color:${({ theme }) => theme.COLORS.DARK_800};
             color:${({ theme }) => theme.COLORS.LIGHT_100};
