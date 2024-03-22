@@ -17,7 +17,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export function EditPlate(){
     const [data, setData] = useState(null);
-    const [dataIngredients, setDataIngredients] = useState([])
     const params = useParams();
     
     const [platesSearched, setPlatesSearched] = useState([]);
@@ -46,7 +45,6 @@ export function EditPlate(){
 
     function handleRemoveIngredient(deleted){
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
-        setDataIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
     }
 
     async function handleEditPlate(){
@@ -59,24 +57,27 @@ export function EditPlate(){
         }
         
         try {
-            const formData = new FormData();
-            formData.append("plateimage", plateImage); 
-            formData.append("name", name);
-            formData.append("category", category);
-            formData.append("price", price);
-            formData.append("description", description);
-            
-            ingredients.forEach(ingredient => {
-                formData.append("ingredients[]", ingredient);
-            });
-
-            const response = await api.post("/plates", formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
+            if(plateImage){
+                const formData = new FormData();
+                formData.append("plateimage", plateImage); 
+                
     
-            alert("Prato criado com sucesso!");
+                await api.patch(`/plates/${params.id}/plateimage`, formData);
+            }
+            
+            const updated = {
+                name,
+                category,
+                price,
+                description,
+                ingredients 
+            }
+
+            const plateUpdate = Object.assign(data.plates, updated);
+
+            await api.put(`/plates/${params.id}`, plateUpdate);
+    
+            alert("Prato atualizado com sucesso!");
             navigate("/");
             
         } catch (error) {
@@ -95,10 +96,16 @@ export function EditPlate(){
         async function fetchData(){
             const response = await api.get(`/plates/${params.id}`);
             setData(response.data);
+            setName(response.data.plates.name);
+            setCategory(response.data.plates.category);
+            setPrice(String(response.data.plates.price));
+            setDescription(response.data.plates.description);
+
 
             const fetchedData = response.data.ingredients;
             const databaseIngredients = Array.from(new Set(fetchedData.map((databaseingradient) => databaseingradient.name)));
-            setDataIngredients(databaseIngredients);
+            setIngredients(databaseIngredients);
+
 
         }
         
@@ -203,16 +210,6 @@ export function EditPlate(){
                         <div className="content">
                             <span>Ingredientes</span>
                             <div className="tag-wrapper">
-                                {
-                                    data.ingredients && 
-                                    dataIngredients.map((dataIngredient, index) => (
-                                        <Tag
-                                            key={String(index)}
-                                            value={dataIngredient}
-                                            onClick={() => handleRemoveIngredient(dataIngredient)}
-                                        />
-                                    ))
-                                }
                                 {
                                     ingredients.map((ingredient, index) => (
                                         <Tag
