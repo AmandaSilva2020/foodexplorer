@@ -10,13 +10,16 @@ import { Tag } from "../../components/Tag";
 import { Input } from "../../components/Input";
 
 import { PiUploadSimple } from "react-icons/pi";
-import Select from 'react-select';
 import Creatable from 'react-select/creatable';
 
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export function EditPlate(){
+    const [data, setData] = useState(null);
+    const [dataIngredients, setDataIngredients] = useState([])
+    const params = useParams();
+    
     const [platesSearched, setPlatesSearched] = useState([]);
 
     const [plateImage, setPlateImage] = useState(null);
@@ -43,6 +46,7 @@ export function EditPlate(){
 
     function handleRemoveIngredient(deleted){
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
+        setDataIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
     }
 
     async function handleEditPlate(){
@@ -88,6 +92,20 @@ export function EditPlate(){
     const [categoriesOptions, setCategoriesOptions] = useState([]); 
 
     useEffect(() => {
+        async function fetchData(){
+            const response = await api.get(`/plates/${params.id}`);
+            setData(response.data);
+
+            const fetchedData = response.data.ingredients;
+            const databaseIngredients = Array.from(new Set(fetchedData.map((databaseingradient) => databaseingradient.name)));
+            setDataIngredients(databaseIngredients);
+
+        }
+        
+        fetchData();
+    }, [])
+    
+    useEffect(() => {
         async function fetchCategories() {
         const response = await api.get(`/plates?name=`);
         const fetchedPlates = response.data.plates;
@@ -121,6 +139,7 @@ export function EditPlate(){
 
                 <h2>Editar Prato</h2>
 
+                { data &&
                 <Form>
                 <div className="input-wrapper">
                         <Input 
@@ -130,14 +149,14 @@ export function EditPlate(){
                             type= "file"
                             id="plate-image"
                             hidden
-                            title={plateImageName ? plateImageName : "Selecione imagem"}
+                            title={plateImageName ? plateImageName : data.plates.image}
                             onChange={handleInsertPlateImage}
                         />
 
                         <Input 
                             label
                             labelName="Nome"
-                            placeholder="Ex.: Salada Ceasar"
+                            defaultValue={data.plates.name}
                             type="text"
                             id="plate-name"
                             onChange={e => setName(e.target.value)}
@@ -147,7 +166,7 @@ export function EditPlate(){
                             Categoria
                             
                             <Creatable
-                                placeholder="Selecione ou crie uma categoria" 
+                                placeholder={data.plates.category}
                                 className="input-alike"
                                 options={categoriesOptions} 
                                 onChange={e => setCategory(e.value)}
@@ -185,6 +204,16 @@ export function EditPlate(){
                             <span>Ingredientes</span>
                             <div className="tag-wrapper">
                                 {
+                                    data.ingredients && 
+                                    dataIngredients.map((dataIngredient, index) => (
+                                        <Tag
+                                            key={String(index)}
+                                            value={dataIngredient}
+                                            onClick={() => handleRemoveIngredient(dataIngredient)}
+                                        />
+                                    ))
+                                }
+                                {
                                     ingredients.map((ingredient, index) => (
                                         <Tag
                                             key={String(index)}
@@ -208,7 +237,7 @@ export function EditPlate(){
                                 <span>€</span>
                                 <input 
                                     type="text" 
-                                    placeholder="00,00"
+                                    defaultValue={data.plates.price}
                                     onChange={e => setPrice(parseFloat(e.target.value))}
                                 />
                             </div>
@@ -218,7 +247,7 @@ export function EditPlate(){
                     <div className="content">
                         <span>Descrição</span>
                         <textarea 
-                            placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                            defaultValue={data.plates.description}
                             onChange={e => setDescription(e.target.value)}
                         ></textarea>
                     </div>
@@ -232,6 +261,7 @@ export function EditPlate(){
                         />
                     </div>
                 </Form>
+                }
                 
             </main>
             

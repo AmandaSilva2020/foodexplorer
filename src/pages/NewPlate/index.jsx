@@ -13,7 +13,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { PiUploadSimple } from "react-icons/pi";
-import Select from 'react-select';
 import Creatable from 'react-select/creatable';
 
 export function NewPlate(){
