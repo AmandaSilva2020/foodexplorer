@@ -42,6 +42,10 @@ export const Container = styled.div`
 
             border-radius: 1.6rem;
         }
+
+        > main a {
+            font-size: 1.4rem;
+        }
     }
 
 `;

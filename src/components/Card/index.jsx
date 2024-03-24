@@ -13,6 +13,8 @@ export function Card({ imageUrl, plateId, title, description, price, ...rest }){
 
     const [isFavorite, setIsFavorite] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
+
+    const [finalOrderQnty, setFinalOrderQnty] = useState(0);
     
 
     function handleIsFavorite(){
@@ -50,7 +52,7 @@ export function Card({ imageUrl, plateId, title, description, price, ...rest }){
             <ButtonText title={title + " >"} to={"/plate/" + plateId}/>
             <div id="description">{description}</div>
             <p id="price">{"€ " + price}</p>
-            <AddAndRemoveItem btnExtists/>
+            <AddAndRemoveItem setFinalOrderQnty={setFinalOrderQnty} btnExtists/>
         </Container>
     )
 }

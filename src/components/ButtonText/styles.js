@@ -23,4 +23,8 @@ export const Container = styled(Link)`
         width: 1.8rem;
         height: 1.8rem;
     }
+
+    @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}){
+        font-size: 2.4rem;
+    }
 `;

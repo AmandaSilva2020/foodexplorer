@@ -23,10 +23,24 @@ export function Plate(){
 
     const [name, setName] = useState("");
     const [ingredients, setIngredients] = useState([]);
-    const [price, setPrice] = useState("");
+    const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
+
+    const [finalOrderQnty, setFinalOrderQnty] = useState(0);
+    const [orderPrice, setOrderPrice] = useState(0);
     
 
+    useEffect(() => {
+        const total = finalOrderQnty*price;
+
+        if(total == 0){
+            setOrderPrice(price.toFixed(2).replace('.', ','));
+        } else {
+            setOrderPrice(total.toFixed(2).replace('.', ','));
+        }
+
+    }, [finalOrderQnty, price]);
+    
     useEffect(() => {
         if(user.role == "admin"){
             setIsAdmin(true);
@@ -43,7 +57,7 @@ export function Plate(){
 
             setimageUrl(url);
             setName(response.data.plates.name);
-            setPrice(response.data.plates.price.toFixed(2).replace('.', ','));
+            setPrice(response.data.plates.price);
             setDescription(response.data.plates.description);
 
 
@@ -91,8 +105,8 @@ export function Plate(){
                             </div>
                             :
                             <div className="plate-btn-wrapper">
-                                <AddAndRemoveItem />
-                                <Button icon={PiReceipt} title={"Pedir ∙ € " + price} id="add-to-order" />
+                                <AddAndRemoveItem setFinalOrderQnty={setFinalOrderQnty} />
+                                <Button icon={PiReceipt} title={"Pedir ∙ € " + price.toFixed(2).replace('.', ',')} id="add-to-order" />
                             </div>
                         }
                     </div>

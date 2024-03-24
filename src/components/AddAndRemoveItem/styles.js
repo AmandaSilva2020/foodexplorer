@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     width: 100%;
-    padding: 1.2rem;
+    padding-block: 1.2rem;
 
     display: flex;
     flex-direction: column;
@@ -16,7 +16,8 @@ export const Container = styled.div`
 
     @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}){
         flex-direction: row;
-        width: auto;
+        width: 100%;
+        padding: 3rem;
 
         > button{
             width: 92px;

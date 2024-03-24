@@ -41,6 +41,11 @@ export const Container = styled.div`
             width: 47.6rem;
 
             border-radius: 1.6rem;
+            
+        }
+        
+        > main a {
+            font-size: 1.4rem;
         }
         
     }

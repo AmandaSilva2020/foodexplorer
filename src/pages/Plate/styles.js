@@ -101,6 +101,10 @@ export const PlateInfo = styled.section`
             height: 3.78rem;
 
             margin-top: 4.8rem;
+            
+            > div{
+                padding-left: 0;
+            }
 
             button{
                 font-size: 1.2rem;
