@@ -43,7 +43,7 @@ export function Plate(){
 
             setimageUrl(url);
             setName(response.data.plates.name);
-            setPrice(String(response.data.plates.price));
+            setPrice(response.data.plates.price.toFixed(2).replace('.', ','));
             setDescription(response.data.plates.description);
 
 
@@ -92,7 +92,7 @@ export function Plate(){
                             :
                             <div className="plate-btn-wrapper">
                                 <AddAndRemoveItem />
-                                <Button icon={PiReceipt} title={"Pedir ∙ R$ " + price} id="add-to-order" />
+                                <Button icon={PiReceipt} title={"Pedir ∙ € " + price} id="add-to-order" />
                             </div>
                         }
                     </div>

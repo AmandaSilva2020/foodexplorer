@@ -47,7 +47,7 @@ export function Slider({ platesInCategory }){
                   imageUrl={api.defaults.baseURL + "/files/" + plate.image}
                   title={plate.name}
                   description={plate.description}
-                  price={plate.price}
+                  price={plate.price.toFixed(2).replace('.', ',')}
                   plateId={plate.id}
                 />
               </div>
