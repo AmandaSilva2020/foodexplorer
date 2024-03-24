@@ -24,6 +24,10 @@ export function Header({ setPlatesSearched, quantity, ...rest }){
         signOut();
     }
 
+    function handleBackToHome(){
+        setPlatesSearched([]);
+    }
+
     useEffect(() => {
         setIsAdmin(user.role === "admin");
     }, [user.role]);
@@ -38,10 +42,10 @@ export function Header({ setPlatesSearched, quantity, ...rest }){
                 <button onClick={() => setMenuIsOpen(true)} id="menu-hamb">
                     <PiList />
                 </button>
-                <div className="logo-role">
+                <Link className="logo-role" onClick={handleBackToHome} to="/" >
                     <img src="../../../public/logo_food_explorer.png" alt="Food explorer logo" />
                     <span>admin</span>
-                </div>
+                </Link>
                 
                 <button id="shop-list">
                     <PiReceiptLight />
@@ -52,7 +56,7 @@ export function Header({ setPlatesSearched, quantity, ...rest }){
 
                 <div className="menu-desktop">
                     <Search 
-                        onChange={(e) => setSearch(e.target.value)}
+                        onClick={(value) => setSearch(value)}
                     />
                     <div id="order">
                         {  
@@ -80,7 +84,7 @@ export function Header({ setPlatesSearched, quantity, ...rest }){
                         onClick={() => setMenuIsOpen(false)}
                     />
                     <Search 
-                        onChange={(e) => setSearch(e.target.value)}
+                        onClick={(value) => setSearch(value)}
                     />
                     <div className="menu-btn-wrapper">
                         <ul>

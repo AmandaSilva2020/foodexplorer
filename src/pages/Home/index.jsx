@@ -20,7 +20,7 @@ export function Home(){
         const fetchedPlates = response.data.plates;
         
         const groupedByCategory = fetchedPlates.reduce((acc, plate) => {
-          // Agrupando pratos por categoria
+
           if (!acc[plate.category]) {
             acc[plate.category] = [];
           }
@@ -57,7 +57,7 @@ export function Home(){
                   Object.entries(categories).map(([category, platesInCategory]) => (
                     <div key={category}>
                       <p className='plate-category'>{category}</p>
-                      <Slider platesInCategory={platesInCategory} />
+                      <Slider key={platesInCategory.map(plate => plate.id).join("-")} platesInCategory={platesInCategory} />
                     </div>
                   ))
                 }

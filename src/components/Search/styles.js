@@ -14,17 +14,24 @@ export const Container = styled.div`
     display: grid;
     grid-template-columns: auto 1fr;
 
-    > svg {
-        width: 2.4rem;
-        height: 2.4rem;
+    > button {
+        height: 100%;
+        display: flex;
+        justify-content: center;
 
-        margin-right: 1.4rem;
+        svg {
+            width: 2.4rem;
+            height: 2.4rem;
+            color: ${({ theme }) => theme.COLORS.LIGHT_500};
+    
+            margin-right: 1.4rem;
+        }
     }
 
     > input {
         background: none;
         border: none;
-        color: ${({ theme }) => theme.COLORS.LIGHT_500};;
+        color: ${({ theme }) => theme.COLORS.LIGHT_500};
 
         &:focus{
             outline: none;
