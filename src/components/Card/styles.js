@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 21rem;
-    padding: 2.4rem;
+    
     display: flex;
     flex-direction: column;
     position: relative;
@@ -40,6 +40,7 @@ export const Container = styled.div`
             font: ${({ theme }) => theme.FONT.ROBOTO_SMALLER_REGULAR};
             text-align: center;
             margin-block: 1.5rem;
+            padding-inline: 3rem;
         }
 
         > #price {
@@ -69,7 +70,7 @@ export const Product = styled.div`
     > a {
         svg{
             position: absolute;
-            top: 1.6rem;
+            top: 0;
             right: 1.6rem;
 
             width: 2.4rem;

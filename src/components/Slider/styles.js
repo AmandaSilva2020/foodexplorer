@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
-    margin: 6.2rem;
-    margin-left: 2.4rem;
+    margin-block: 6.2rem;
 
     .plate-category{
         margin-bottom: 2.4rem;

@@ -17,6 +17,7 @@ export const Container = styled.div`
     > main{
         grid-area: main;
         width: 100vw;
+
     }
 
 
@@ -34,7 +35,7 @@ export const Cover = styled.div`
 
 
     margin-top: 4.4rem;
-    margin-left: 2rem;
+    margin-inline: 2rem;
 
     height: 12rem;
 

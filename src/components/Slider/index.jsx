@@ -26,18 +26,14 @@ export function Slider({ platesInCategory }){
         "(min-width: 1024px)": {
           slides: { 
             origin: 0.5, 
-            perView: 3, 
-            spacing: 30, 
-          },
-          range: {
-            min: -5,
-            max: 5,
+            spacing: 45,
+            perView: 4, 
           },
         },
       },
       slides: {
         perView: 2,
-        spacing: 0,
+        spacing: 15,
       },
     });
 
