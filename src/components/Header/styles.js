@@ -16,7 +16,7 @@ export const Container = styled.header`
 
     background: ${({ theme }) => theme.COLORS.DARK_700};
 
-    button > svg {
+    button > svg, a > svg {
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
     }
 
@@ -166,6 +166,16 @@ export const Container = styled.header`
             display: none;
         }
     }
+    
+    &[data-is-admin=true]{
+        #btn-my-favorites{
+            display: none;
+        }
+        
+        #btn-order-history{
+            display: none;
+        }
+    }
 
     @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}) {
         padding: 2.8rem 12.2rem;
@@ -183,15 +193,40 @@ export const Container = styled.header`
         .menu-desktop{
             display: flex;
             flex: 1;
-            gap: 3.2rem;
+            
             margin-left: 3.2rem;
 
-            #order {
-                width: 21.6rem;
+            .client-wrapper {
+                flex: 1;
+                height: 100%;
+                display: flex;
+                align-items: center;
+
+                .novoprato{
+                    margin-left: 3.2rem;
+                    height: 4.8rem;
+                }
 
                 svg{
                     width: 2.6rem;
                     height: 2.2rem;
+                }
+            }
+
+            .client-wrapper div {
+                display: flex;
+                
+                .client-btn{
+                    width: 16rem;
+                    margin-right: 2.4rem;
+                }
+
+                a{
+                    height: 4.8rem;
+                    width: 21.6rem;
+                    margin-right: 3.2rem;
+                    
+                    font: ${({ theme }) => theme.FONT.ROBOTO_SMALL_REGULAR};
                 }
             }
 

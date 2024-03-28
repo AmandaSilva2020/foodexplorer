@@ -47,28 +47,50 @@ export function Header({ setPlatesSearched, quantity, ...rest }){
                     <span>admin</span>
                 </Link>
                 
-                <button id="shop-list">
+                <Link id="shop-list" to="/myorder" >
                     <PiReceiptLight />
                     <div className="menu-qnt">
                         <span>{quantity}</span>
                     </div>
-                </button>
+                </Link>
 
                 <div className="menu-desktop">
                     <Search 
                         onClick={(value) => setSearch(value)}
                     />
-                    <div id="order">
+                    <div className="client-wrapper">
                         {  
                             isAdmin ?
-                            <Button 
-                                title= "Novo prato"
-                                to= "/newplate"
-                            /> :
-                            <Button 
-                                icon={PiReceiptLight}
-                                title= "Pedidos (0)"
-                            />
+                            <>
+                                <div>
+                                    <Button 
+                                        title= "Novo prato"
+                                        className="novoprato"
+                                        to= "/newplate"
+                                    />
+                                </div>
+                            </>
+                            :
+                            <>
+                            <div>
+                                <ButtonText 
+                                    title= "Meus favoritos"
+                                    className="client-btn"
+                                    to= "/myfavorites"
+                                />
+                                <ButtonText 
+                                    title= "Histórico de pedidos"
+                                    className="client-btn"
+                                    to="/orderhistory"
+                                />
+                                <Button 
+                                    icon={PiReceiptLight}
+                                    title= "Pedidos (0)"
+                                    to="/myorder"
+                                />
+                            </div>
+                            
+                            </>
                         }
                     </div>
                     <button onClick={handleSignOut}>
@@ -89,7 +111,13 @@ export function Header({ setPlatesSearched, quantity, ...rest }){
                     <div className="menu-btn-wrapper">
                         <ul>
                             <li id="btn-new-dish">
-                                <Link to="/newplate" >Novo prato</Link>
+                                <Link to="/newplate">Novo prato</Link>
+                            </li>
+                            <li id="btn-my-favorites">
+                                <Link to="/myfavorites">Meus favoritos</Link>
+                            </li>
+                            <li id="btn-order-history">
+                                <Link to="/orderhistory">Histórico de pedidos</Link>
                             </li>
                             <li>
                                 <button onClick={handleSignOut}>Sair</button>

@@ -41,5 +41,7 @@ export const Container = styled.div`
     &, input {
         font: ${({ theme }) => theme.FONT.ROBOTO_SMALL_REGULAR};
     }
+
+    
     
 `;
