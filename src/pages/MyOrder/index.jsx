@@ -13,6 +13,11 @@ import { PlateItem } from "../../components/PlateItem";
 
 export function MyOrder(){
     const [platesSearched, setPlatesSearched] = useState([]);
+    const [orderReady, setOrderReady] = useState(false);
+
+    function handlePayment(){
+        setOrderReady(!orderReady);
+    }
 
     return(
         <Container>
@@ -28,8 +33,8 @@ export function MyOrder(){
                     to="/"
                 />
 
-                <Content>
-                    <div className="col-1">
+                <Content data-is-order-ready={orderReady}>
+                    <div className="col-1 my-order">
                         <h2>Meu Pedido</h2>
 
                         <div className="items-wrapper">
@@ -59,14 +64,22 @@ export function MyOrder(){
 
                     </div>
                 
-                    <div className="col-1">
+                    <div className="col-1 payment-wrapper">
                         <div className="placeOrderBtnWrapper">
                             <Button 
                                 title="Avançar" 
                                 className="placeOrderBtn"
+                                onClick={handlePayment}
                             />
                         </div>
                         <Payment className="payment" />
+                        <div className="placeOrderBtnWrapper">
+                            <Button 
+                                title="Rever pedido" 
+                                className="reviewOrderBtn"
+                                onClick={handlePayment}
+                            />
+                        </div>
                     </div>
                 </Content>
 

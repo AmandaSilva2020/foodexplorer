@@ -66,7 +66,7 @@ export const Content = styled.div`
         justify-content: end;
     }
 
-    .placeOrderBtn{
+    .placeOrderBtn, .reviewOrderBtn{
         width: 21.6rem;
     }
 
@@ -75,8 +75,28 @@ export const Content = styled.div`
         padding-block: 1.6rem;
     }
 
-    .payment {
-        display: none;
+    &[data-is-order-ready="false"]{
+        .payment, .reviewOrderBtn {
+            display: none;
+        }
+    }
+    
+    &[data-is-order-ready="true"]{
+        .my-order{
+            display: none;
+        }
+
+        .payment{
+            display: block;
+        }
+
+        .reviewOrderBtn{
+            display: flex;
+        }
+
+        .placeOrderBtn{
+            display: none;
+        }
     }
 
 
@@ -84,9 +104,16 @@ export const Content = styled.div`
         flex-direction: row;
         gap: 0;
 
-        .payment {
-            display: block;
+        &[data-is-order-ready="true"], &[data-is-order-ready="false"]{
+            .my-order{
+                display: block;
+            }
+            
+            .payment {
+                display: block;
+            }
         }
+
 
         .placeOrderBtnWrapper{
             display: none;
