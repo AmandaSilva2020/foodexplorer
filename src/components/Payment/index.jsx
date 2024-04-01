@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container, PaymentSelector, CreditForm } from "./styles";
 
-import { PiCreditCard, PiPaypalLogo } from "react-icons/pi";
+import { PiCreditCard, PiPaypalLogo, PiClock, PiCheckCircle, PiForkKnife } from "react-icons/pi";
 import { Button } from "../Button";
 
 export function Payment({...rest}){
@@ -12,9 +12,9 @@ export function Payment({...rest}){
         setSelectPaymentMethod(paymentMethod);
     }
 
-    // function PaymentCurrentState(){
-
-    // }
+    function PaymentCurrentState(status){
+        setPaymentStatus(status);
+    }
 
     return(
         <Container {...rest}>
@@ -37,7 +37,7 @@ export function Payment({...rest}){
                     </div>
                     <div className={`table-cel cel-content ${selectPaymentMethod === 'PayPal' ? 'hide' : ''}`}>
                         <div className="credit-payment">
-                            <CreditForm>
+                            <CreditForm className={`${paymentStatus === 'Beginning' ? '' : 'hide'}`}>
                                 <label htmlFor="card-number">
                                     Número do cartão
 
@@ -59,9 +59,25 @@ export function Payment({...rest}){
 
                                 <Button 
                                     title="Finalizar pagamento"
+                                    onClick={() => PaymentCurrentState('Loading')}
                                 />
 
                             </CreditForm>
+
+                            <div className={`${paymentStatus === 'Loading' ? 'loading' : 'hide'}`}>
+                                <PiClock />
+                                <p>Aguardando Pagamento</p>
+                            </div>
+                            
+                            <div className={`${paymentStatus === 'Done' ? 'done' : 'hide'}`}>
+                                <PiCheckCircle />
+                                <p>Pagamento aprovado!</p>
+                            </div>
+                            
+                            <div className={`${paymentStatus === 'Delivered' ? 'delivered' : 'hide'}`}>
+                                <PiForkKnife />
+                                <p>Pedido entregue!</p>
+                            </div>
                         </div>
                     </div>
                 </div>

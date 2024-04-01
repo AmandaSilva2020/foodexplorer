@@ -71,6 +71,36 @@ export const PaymentSelector = styled.div`
         background-color: ${({ theme }) => theme.COLORS.DARK_800};
     }
 
+    .credit-payment{
+        height: 38rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .loading, .done, .delivered{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        gap: 2.4rem;
+
+        align-items: center;
+        justify-content: center;
+
+        color: ${({ theme }) => theme.COLORS.LIGHT_400};
+
+        p{
+            font: ${({ theme }) => theme.FONT.ROBOTO_BIG_BOLD};
+        }
+
+        svg{
+            width: 9.6rem;
+            height: 9.6rem;
+        }
+    }
+
     @media screen and (min-width: ${({ theme }) => theme.SCREEN.lg}){
         width: 53rem;
     }
