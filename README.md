@@ -1,8 +1,39 @@
-# React + Vite
+# 🍽️ Food Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Sobre o projeto
 
-Currently, two official plugins are available:
+O Food Explorer é um WebApp de cardápio digital para um restaurante fictício, conhecido como foodExplorer. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O utilizador pode visualizar todos os pratos cadastrados e, quando clica em um prato, é redirecionado para uma nova tela com informações mais detalhadas sobre ele. Além disso, pode pesquisar o prato tanto pelo nome como por seus ingredientes.
+
+O administrador pode criar, visualizar, editar e apagar um prato a qualquer momento. 
+
+
+## Rodando localmente
+
+Clone o projeto
+
+```bash
+  git clone https://github.com/AmandaSilva2020/foodexplorer.git
+```
+
+Entre no diretório do projeto
+
+```bash
+  cd foodexplorer
+```
+
+Instale as dependências
+
+```bash
+  npm install
+  ou
+  npm i
+```
+
+Inicie o servidor
+
+```bash
+  npm run dev
+```
+
