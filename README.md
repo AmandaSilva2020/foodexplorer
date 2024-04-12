@@ -8,6 +8,14 @@ O utilizador pode visualizar todos os pratos cadastrados e, quando clica em um p
 
 O administrador pode criar, visualizar, editar e apagar um prato a qualquer momento. 
 
+## Preview
+<img width="1718" alt="Captura de ecrã 2024-04-12, às 16 07 56" src="https://github.com/AmandaSilva2020/foodexplorer/assets/71529907/92f55422-160f-4502-af0d-3842d2d0e19d">
+
+## Conta admin para demonstração
+```
+e-mail: admin@email.com
+senha: 123
+```
 
 ## Rodando localmente
 
