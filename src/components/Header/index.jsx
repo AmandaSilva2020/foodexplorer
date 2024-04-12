@@ -63,6 +63,11 @@ export function Header({ setPlatesSearched, quantity, ...rest }){
                             isAdmin ?
                             <>
                                 <div>
+                                    <ButtonText 
+                                        title= "Pedidos"
+                                        className="client-btn adm-btn"
+                                        to= "/orders"
+                                    />
                                     <Button 
                                         title= "Novo prato"
                                         className="novoprato"
@@ -110,8 +115,11 @@ export function Header({ setPlatesSearched, quantity, ...rest }){
                     />
                     <div className="menu-btn-wrapper">
                         <ul>
-                            <li id="btn-new-dish">
+                            <li class="btn-admin">
                                 <Link to="/newplate">Novo prato</Link>
+                            </li>
+                            <li class="btn-admin">
+                                <Link to="/orders">Pedidos</Link>
                             </li>
                             <li id="btn-my-favorites">
                                 <Link to="/myfavorites">Meus favoritos</Link>

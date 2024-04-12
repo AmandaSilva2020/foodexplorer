@@ -14,6 +14,7 @@ import { PlateItem } from "../../components/PlateItem";
 export function MyOrder(){
     const [platesSearched, setPlatesSearched] = useState([]);
     const [orderReady, setOrderReady] = useState(false);
+    const [paymentStatus, setPaymentStatus] = useState("Beginning");
 
     function handlePayment(){
         setOrderReady(!orderReady);
@@ -43,6 +44,7 @@ export function MyOrder(){
                                 itemTotal="32,00"
                                 url="http://localhost:3333/files/2e6f55dec60a174a2a7e-Mask%20group-3.png"
                                 plateName="Salada Radish"
+                                hasRemoveBtn={paymentStatus === "Done" ? false : true}
                                 title="Remover do pedido"
                             />
                             <PlateItem 
@@ -50,12 +52,14 @@ export function MyOrder(){
                                 itemTotal="16,00"
                                 url="http://localhost:3333/files/2e6f55dec60a174a2a7e-Mask%20group-3.png"
                                 plateName="Salada Radish"
+                                hasRemoveBtn
                                 title="Remover do pedido"
                             />
                             <PlateItem 
                                 isFavorite
                                 url="http://localhost:3333/files/2e6f55dec60a174a2a7e-Mask%20group-3.png"
                                 plateName="Salada Radish"
+                                hasRemoveBtn
                                 title="Remover dos favoritos"
                             />
                         </div>

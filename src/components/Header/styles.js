@@ -162,7 +162,7 @@ export const Container = styled.header`
     }
 
     &[data-is-admin=false]{
-        #btn-new-dish{
+        .btn-admin{
             display: none;
         }
     }
@@ -219,6 +219,10 @@ export const Container = styled.header`
                 .client-btn{
                     width: 16rem;
                     margin-right: 2.4rem;
+                }
+
+                .adm-btn{
+                    margin-inline: 1.5rem;
                 }
 
                 a{

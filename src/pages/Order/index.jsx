@@ -3,13 +3,13 @@ import { Container, Content } from "./styles";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
+import { Table } from "../../components/Table";
 
 import { PiCaretLeft } from "react-icons/pi";
 
 import { useState } from "react";
-import { Table } from "../../components/Table";
 
-export function OrderHistory(){
+export function Order(){
     const [platesSearched, setPlatesSearched] = useState([]);
 
     return(
@@ -27,9 +27,9 @@ export function OrderHistory(){
                 />
 
                 <Content>
-                    <h2>Histórico de pedidos</h2>
-                    <Table></Table>
-                
+                    <h2>Pedidos</h2>
+
+                    <Table isBtn></Table>
                 </Content>
 
 

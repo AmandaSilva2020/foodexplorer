@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 
 import { PiUploadSimple } from "react-icons/pi";
 import Creatable from 'react-select/creatable';
+import { CustomStyles } from "../../styles/global";
 
 export function NewPlate(){
     const [platesSearched, setPlatesSearched] = useState([]);
@@ -150,30 +151,7 @@ export function NewPlate(){
                                 className="input-alike"
                                 options={categoriesOptions} 
                                 onChange={e => setCategory(e.value)}
-                                styles={{
-                                    control: (baseStyles, state) => ({
-                                      ...baseStyles,
-                                      border: state.isFocused ? 'none' : 'none',
-                                      backgroundColor: '#0D1D25',
-                                      height: '4.8rem',
-                                    }),
-                                    menu:(baseStyles, state) => ({
-                                        ...baseStyles,
-                                        backgroundColor: '#0D1D25',
-                                      }),
-                                    option: (baseStyles, state) => ({
-                                        ...baseStyles,
-                                        backgroundColor: state.isFocused ? '#192227' : '#0D1D25',
-                                      }),
-                                    singleValue: (baseStyles) => ({
-                                        ...baseStyles,
-                                        color: "#fff",
-                                    }),
-                                    input: (baseStyles) => ({
-                                        ...baseStyles,
-                                        color: "#fff",
-                                    })
-                                  }}
+                                styles={CustomStyles}
                             />
                         </label>
 

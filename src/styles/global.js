@@ -40,3 +40,36 @@ export default createGlobalStyle`
     }
 
 `
+
+export const CustomStyles = {
+    indicatorSeparator: () => ({
+      display: 'none', // Esconde o separador do indicador
+    }),
+    control: (baseStyles, state) => ({
+      ...baseStyles,
+      border: state.isFocused ? 'none' : 'none',
+      backgroundColor: '#0D1D25',
+      height: '4.8rem',
+    }),
+    container:(baseStyles) => ({
+        ...baseStyles,
+        width:"100%",
+      }),
+    menu:(baseStyles) => ({
+        ...baseStyles,
+        backgroundColor: '#0D1D25',
+        marginBlock:"5px",
+      }),
+    option: (baseStyles, state) => ({
+        ...baseStyles,
+        backgroundColor: state.isFocused ? '#192227' : '#0D1D25',
+      }),
+    singleValue: (baseStyles) => ({
+        ...baseStyles,
+        color: "#fff",
+    }),
+    input: (baseStyles) => ({
+        ...baseStyles,
+        color: "#fff",
+    })
+    }
