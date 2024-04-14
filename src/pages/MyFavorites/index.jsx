@@ -32,13 +32,7 @@ export function MyFavorites(){
                     <h2>Meus favoritos</h2>
 
                     <div className="items-wrapper">
-                        <PlateItem 
-                            hasRemoveBtn
-                            isFavorite
-                            url="assets/suco.png"
-                            plateName="Salada Radish"
-                            title="Remover dos favoritos"
-                        />
+                        
                         <PlateItem 
                             hasRemoveBtn
                             isFavorite
@@ -46,48 +40,7 @@ export function MyFavorites(){
                             plateName="Salada Radish"
                             title="Remover dos favoritos"
                         />
-                        <PlateItem 
-                            hasRemoveBtn
-                            isFavorite
-                            url="../../assets/suco.png"
-                            plateName="Salada Radish"
-                            title="Remover dos favoritos"
-                        />
-                        <PlateItem 
-                            hasRemoveBtn
-                            isFavorite
-                            url="../../assets/suco.png"
-                            plateName="Salada Radish"
-                            title="Remover dos favoritos"
-                        />
-                        <PlateItem 
-                            hasRemoveBtn
-                            isFavorite
-                            url="../../assets/suco.png"
-                            plateName="Salada Radish"
-                            title="Remover dos favoritos"
-                        />
-                        <PlateItem 
-                            hasRemoveBtn
-                            isFavorite
-                            url="../../assets/suco.png"
-                            plateName="Salada Radish"
-                            title="Remover dos favoritos"
-                        />
-                        <PlateItem 
-                            hasRemoveBtn
-                            isFavorite
-                            url="../../assets/suco.png"
-                            plateName="Salada Radish"
-                            title="Remover dos favoritos"
-                        />
-                        <PlateItem 
-                            hasRemoveBtn
-                            isFavorite
-                            url="../../assets/suco.png"
-                            plateName="Salada Radish"
-                            title="Remover dos favoritos"
-                        />
+                        
                     </div>
 
                 
