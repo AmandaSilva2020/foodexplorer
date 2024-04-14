@@ -45,3 +45,18 @@ Inicie o servidor
   npm run dev
 ```
 
+## Stack utilizada
+
+- [React](https://react.dev/)
+- [React Router](https://github.com/remix-run/react-router)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [StyledComponents](https://styled-components.com/)
+- [React-icons](https://react-icons.github.io/react-icons/)
+- [Keen-slider](https://keen-slider.io/docs)
+- [React-select](https://react-select.com/styles)
+- [Axios](https://axios-http.com/docs/intro)
+
+## Licença
+
+O app Food Explorer é distribuída sob a licença [MIT](https://choosealicense.com/licenses/mit/). Isso significa que você pode usar, modificar e distribuir o código desta API livremente, desde que inclua a declaração de direitos autorais e a licença MIT em qualquer cópia ou parte dela.
