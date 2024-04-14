@@ -4,6 +4,7 @@ import { Container, Cover, SliderWrapper} from "./styles";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Slider } from '../../components/Slider';
+import foodImg from "../../../src/assets/food.png";
 
 import { useState, useEffect } from "react";
 
@@ -45,7 +46,7 @@ export function Home(){
             <main>
                 <Cover>
                     <div id="cover-img">
-                        <img src="../../../src/assets/food.png" alt="" />
+                        <img src={foodImg} alt="Food image" />
                     </div>
                     <div className="cover-text">
                         <h1>Sabores inigualáveis</h1>

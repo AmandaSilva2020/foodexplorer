@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonText";
-import { Container } from "./styles"
+import { Container } from "./styles";
+import logo_food_explorer from "/src/assets/logo_food_explorer.png";
 
 export function SignUp() {
   const [name, setName] = useState("");
@@ -37,7 +38,7 @@ export function SignUp() {
 
   return (
       <Container>
-        <img src="/src/assets/logo_food_explorer.png" alt="Logo do Food Explorer" />
+        <img src={logo_food_explorer} alt="Logo do Food Explorer" />
         <main>
           <Input 
             placeholder="Exemplo: Maria da Silva"

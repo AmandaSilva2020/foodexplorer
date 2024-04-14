@@ -8,6 +8,7 @@ import { ButtonText } from "../ButtonText";
 import { Search } from "../Search";
 import { Footer } from "../Footer";
 import { Button } from "../Button";
+import logo_food_explorer from "/src/assets/logo_food_explorer.png";
 
 export function Header({ setPlatesSearched, quantity, ...rest }){
     const { signOut, user } = useAuth();
@@ -43,7 +44,7 @@ export function Header({ setPlatesSearched, quantity, ...rest }){
                     <PiList />
                 </button>
                 <Link className="logo-role" onClick={handleBackToHome} to="/" >
-                    <img src="/src/assets/logo_food_explorer.png" alt="Food explorer logo" />
+                    <img src={logo_food_explorer} alt="Food explorer logo" />
                     <span>admin</span>
                 </Link>
                 
