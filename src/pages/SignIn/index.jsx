@@ -19,7 +19,7 @@ export function SignIn() {
 
   return (
       <Container>
-        <img src="../../../public/logo_food_explorer.png" alt="Logo do Food Explorer" />
+        <img src="/src/assets/logo_food_explorer.png" alt="Logo do Food Explorer" />
         <main>
           <Input 
             placeholder="Exemplo: exemplo@exemplo.com.br"

@@ -33,7 +33,7 @@ export function Payment({...rest}){
                 </div>
                 <div className="table-content">
                     <div className={`table-cel cel-content ${selectPaymentMethod === 'Crédito' ? 'hide' : ''}`}>
-                        <img src="../../../public/qrcode.svg" alt="" />
+                        <img src="/src/assets/qrcode.svg" alt="QR Code" />
                     </div>
                     <div className={`table-cel cel-content ${selectPaymentMethod === 'PayPal' ? 'hide' : ''}`}>
                         <div className="credit-payment">

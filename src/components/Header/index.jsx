@@ -43,7 +43,7 @@ export function Header({ setPlatesSearched, quantity, ...rest }){
                     <PiList />
                 </button>
                 <Link className="logo-role" onClick={handleBackToHome} to="/" >
-                    <img src="../../../public/logo_food_explorer.png" alt="Food explorer logo" />
+                    <img src="/src/assets/logo_food_explorer.png" alt="Food explorer logo" />
                     <span>admin</span>
                 </Link>
                 
