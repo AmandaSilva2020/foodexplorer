@@ -47,24 +47,9 @@ export function MyOrder(){
                                 hasRemoveBtn={paymentStatus === "Done" ? false : true}
                                 title="Remover do pedido"
                             />
-                            <PlateItem 
-                                qnty="2"
-                                itemTotal="16,00"
-                                url="http://localhost:3333/files/2e6f55dec60a174a2a7e-Mask%20group-3.png"
-                                plateName="Salada Radish"
-                                hasRemoveBtn
-                                title="Remover do pedido"
-                            />
-                            <PlateItem 
-                                isFavorite
-                                url="http://localhost:3333/files/2e6f55dec60a174a2a7e-Mask%20group-3.png"
-                                plateName="Salada Radish"
-                                hasRemoveBtn
-                                title="Remover dos favoritos"
-                            />
                         </div>
 
-                        <p className="total-wrapper">Total: € 103,88</p>
+                        <p className="total-wrapper">Total: € 32,00</p>
 
                     </div>
                 

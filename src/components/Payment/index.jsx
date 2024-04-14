@@ -3,6 +3,7 @@ import { Container, PaymentSelector, CreditForm } from "./styles";
 
 import { PiCreditCard, PiPaypalLogo, PiClock, PiCheckCircle, PiForkKnife } from "react-icons/pi";
 import { Button } from "../Button";
+import qrCode from "/src/assets/qrcode.svg";
 
 export function Payment({...rest}){
     const [selectPaymentMethod, setSelectPaymentMethod] = useState("PayPal");
@@ -33,7 +34,7 @@ export function Payment({...rest}){
                 </div>
                 <div className="table-content">
                     <div className={`table-cel cel-content ${selectPaymentMethod === 'Crédito' ? 'hide' : ''}`}>
-                        <img src="/src/assets/qrcode.svg" alt="QR Code" />
+                        <img src={qrCode} alt="QR Code" />
                     </div>
                     <div className={`table-cel cel-content ${selectPaymentMethod === 'PayPal' ? 'hide' : ''}`}>
                         <div className="credit-payment">
