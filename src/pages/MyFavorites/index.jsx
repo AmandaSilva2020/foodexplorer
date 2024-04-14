@@ -35,56 +35,56 @@ export function MyFavorites(){
                         <PlateItem 
                             hasRemoveBtn
                             isFavorite
-                            url="http://localhost:3333/files/2e6f55dec60a174a2a7e-Mask%20group-3.png"
+                            url="../../assets/suco.png"
                             plateName="Salada Radish"
                             title="Remover dos favoritos"
                         />
                         <PlateItem 
                             hasRemoveBtn
                             isFavorite
-                            url="http://localhost:3333/files/2e6f55dec60a174a2a7e-Mask%20group-3.png"
+                            url="../../assets/suco.png"
                             plateName="Salada Radish"
                             title="Remover dos favoritos"
                         />
                         <PlateItem 
                             hasRemoveBtn
                             isFavorite
-                            url="http://localhost:3333/files/2e6f55dec60a174a2a7e-Mask%20group-3.png"
+                            url="../../assets/suco.png"
                             plateName="Salada Radish"
                             title="Remover dos favoritos"
                         />
                         <PlateItem 
                             hasRemoveBtn
                             isFavorite
-                            url="http://localhost:3333/files/2e6f55dec60a174a2a7e-Mask%20group-3.png"
+                            url="../../assets/suco.png"
                             plateName="Salada Radish"
                             title="Remover dos favoritos"
                         />
                         <PlateItem 
                             hasRemoveBtn
                             isFavorite
-                            url="http://localhost:3333/files/2e6f55dec60a174a2a7e-Mask%20group-3.png"
+                            url="../../assets/suco.png"
                             plateName="Salada Radish"
                             title="Remover dos favoritos"
                         />
                         <PlateItem 
                             hasRemoveBtn
                             isFavorite
-                            url="http://localhost:3333/files/2e6f55dec60a174a2a7e-Mask%20group-3.png"
+                            url="../../assets/suco.png"
                             plateName="Salada Radish"
                             title="Remover dos favoritos"
                         />
                         <PlateItem 
                             hasRemoveBtn
                             isFavorite
-                            url="http://localhost:3333/files/2e6f55dec60a174a2a7e-Mask%20group-3.png"
+                            url="../../assets/suco.png"
                             plateName="Salada Radish"
                             title="Remover dos favoritos"
                         />
                         <PlateItem 
                             hasRemoveBtn
                             isFavorite
-                            url="http://localhost:3333/files/2e6f55dec60a174a2a7e-Mask%20group-3.png"
+                            url="../../assets/suco.png"
                             plateName="Salada Radish"
                             title="Remover dos favoritos"
                         />
