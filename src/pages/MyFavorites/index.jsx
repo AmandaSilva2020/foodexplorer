@@ -35,7 +35,7 @@ export function MyFavorites(){
                         <PlateItem 
                             hasRemoveBtn
                             isFavorite
-                            url="../../assets/suco.png"
+                            url="assets/suco.png"
                             plateName="Salada Radish"
                             title="Remover dos favoritos"
                         />
