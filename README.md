@@ -49,7 +49,6 @@ Inicie o servidor
 
 - [React](https://react.dev/)
 - [React Router](https://github.com/remix-run/react-router)
-- [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/)
 - [StyledComponents](https://styled-components.com/)
 - [React-icons](https://react-icons.github.io/react-icons/)
